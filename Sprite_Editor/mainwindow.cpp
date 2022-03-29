@@ -18,7 +18,7 @@ public:
 
 };
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(Model *model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
