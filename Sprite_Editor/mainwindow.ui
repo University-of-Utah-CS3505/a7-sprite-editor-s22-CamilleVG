@@ -44,7 +44,11 @@
         <height>91</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout"/>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+      </layout>
      </widget>
     </widget>
    </widget>

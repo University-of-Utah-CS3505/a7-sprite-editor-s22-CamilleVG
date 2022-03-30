@@ -11,6 +11,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent)
     ui->setupUi(this);
 
     connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::assignDimensions);
+    connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
 }
 
 MainWindow::~MainWindow(){
@@ -38,4 +39,18 @@ void MainWindow::RenderMainImage(QImage frame){
 
 void MainWindow::RenderAnimImage(QImage frame){
 
+}
+
+void MainWindow::on_addFrame_clicked()
+{
+    QImage img = screen->image;
+    emit(AddFrame(img));
+    screen->clear();
+
+    QLabel *label = new QLabel("Text", this);
+    label->setFixedSize(100, 100);
+    label->setPixmap(QPixmap::fromImage(img));
+    label->setScaledContents(true);
+
+    ui->horizontalLayout->addWidget(label);
 }

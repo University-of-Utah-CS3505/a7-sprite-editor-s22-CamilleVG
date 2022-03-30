@@ -7,6 +7,7 @@
 #include <QMainWindow>
 #include <QImage>
 #include <starterform.h>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,8 @@ public:
 private slots:
     void on_colorPickerPushButton_clicked();
 
+    void on_addFrame_clicked();
+
 public slots:
     void RenderMainImage(QImage frame);
     void RenderAnimImage(QImage frame);
@@ -32,6 +35,7 @@ signals:
     void SetBrush(std::string _brush);
     void SetColor(QColor _color);
     void SetFPS(int _fps);
+    void AddFrame(QImage img);
 
 private:
     Ui::MainWindow *ui;

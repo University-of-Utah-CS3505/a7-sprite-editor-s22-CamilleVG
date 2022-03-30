@@ -9,6 +9,8 @@ class DrawScreen : public QWidget
     Q_OBJECT
 public:
     DrawScreen(int pixels, QWidget *parent = nullptr);
+    void clear();
+    QImage image;
 
 public slots:
     void changeColor(QColor);
@@ -17,7 +19,6 @@ private:
     QColor color;
     int pixelSize;
     bool scribbling = false;
-    QImage image;
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
