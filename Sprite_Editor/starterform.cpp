@@ -8,25 +8,21 @@ StarterForm::StarterForm(QWidget *parent) :
     ui->setupUi(this);
 }
 
-StarterForm::~StarterForm()
-{
+StarterForm::~StarterForm() {
     delete ui;
 }
 
-void StarterForm::on_pushButton_clicked()
-{
+void StarterForm::on_pushButton_clicked() {
 
 }
 
 
-void StarterForm::on_pushButton_clicked(bool checked)
-{
+void StarterForm::on_pushButton_clicked(bool checked) {
     this->hide();
 }
 
 
-void StarterForm::on_buttonBox_clicked(QAbstractButton *button)
-{
+void StarterForm::on_buttonBox_clicked(QAbstractButton *button) {
     this->hide();
 }
 

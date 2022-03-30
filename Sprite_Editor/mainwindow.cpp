@@ -6,19 +6,17 @@
 
 MainWindow::MainWindow(Model &model, QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
+    , ui(new Ui::MainWindow){
     ui->setupUi(this);
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow(){
     delete ui;
 }
 
 
-void MainWindow::on_colorPickerPushButton_clicked()
-{
+void MainWindow::on_colorPickerPushButton_clicked(){
+
     QColorDialogTester color;
     currentColor = color.returnColor();
     QString styleSheet = "background-color: rgb(" + QString::number(currentColor.red()) + "," + QString::number(currentColor.green()) + "," + QString::number(currentColor.blue()) + ")";

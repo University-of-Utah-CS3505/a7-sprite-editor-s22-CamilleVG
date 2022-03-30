@@ -3,15 +3,16 @@
 #include "dimensiondialog.h"
 #include <QApplication>
 
-int main( int argc, char **argv )
-{
+int main( int argc, char **argv ) {
   QApplication a( argc, argv );
 
 
   Model model;
   MainWindow w(model, nullptr);
   w.show();
+  w.otherwindow.setWindowModality(Qt::ApplicationModal);
   w.otherwindow.show();
+
 /*
   DimensionDialog dDialog(w, nullptr);
   dDialog.show();

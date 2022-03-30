@@ -8,8 +8,7 @@ namespace Ui {
 class StarterForm;
 }
 
-class StarterForm : public QWidget
-{
+class StarterForm : public QWidget{
     Q_OBJECT
 
 public:

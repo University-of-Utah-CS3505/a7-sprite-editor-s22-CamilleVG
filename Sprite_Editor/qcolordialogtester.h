@@ -4,8 +4,7 @@
 #include <QWidget>
 #include <QColorDialog>
 
-class QColorDialogTester : public QWidget
-{
+class QColorDialogTester : public QWidget{
 public:
     QColorDialogTester();
     QColor returnColor();
