@@ -52,22 +52,18 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Sprite_Editor/dimensiondialog.cpp \
-		../Sprite_Editor/main.cpp \
+SOURCES       = ../Sprite_Editor/main.cpp \
 		../Sprite_Editor/mainwindow.cpp \
 		../Sprite_Editor/model.cpp \
 		../Sprite_Editor/qcolordialogtester.cpp \
-		../Sprite_Editor/starterform.cpp moc_dimensiondialog.cpp \
-		moc_mainwindow.cpp \
+		../Sprite_Editor/starterform.cpp moc_mainwindow.cpp \
 		moc_model.cpp \
 		moc_starterform.cpp
-OBJECTS       = dimensiondialog.o \
-		main.o \
+OBJECTS       = main.o \
 		mainwindow.o \
 		model.o \
 		qcolordialogtester.o \
 		starterform.o \
-		moc_dimensiondialog.o \
 		moc_mainwindow.o \
 		moc_model.o \
 		moc_starterform.o
@@ -182,7 +178,6 @@ DIST          = ../../../Qt/6.2.3/macos/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/qt_config.prf \
 		../../../Qt/6.2.3/macos/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/6.2.3/macos/mkspecs/features/spec_post.prf \
-		../Sprite_Editor/.qmake.stash \
 		../../../Qt/6.2.3/macos/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/mac/sdk.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/toolchain.prf \
@@ -211,12 +206,10 @@ DIST          = ../../../Qt/6.2.3/macos/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/exceptions.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/yacc.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/lex.prf \
-		../Sprite_Editor/Sprite_Editor.pro ../Sprite_Editor/dimensiondialog.h \
-		../Sprite_Editor/mainwindow.h \
+		../Sprite_Editor/Sprite_Editor.pro ../Sprite_Editor/mainwindow.h \
 		../Sprite_Editor/model.h \
 		../Sprite_Editor/qcolordialogtester.h \
-		../Sprite_Editor/starterform.h ../Sprite_Editor/dimensiondialog.cpp \
-		../Sprite_Editor/main.cpp \
+		../Sprite_Editor/starterform.h ../Sprite_Editor/main.cpp \
 		../Sprite_Editor/mainwindow.cpp \
 		../Sprite_Editor/model.cpp \
 		../Sprite_Editor/qcolordialogtester.cpp \
@@ -229,7 +222,7 @@ TARGET        = Sprite_Editor.app/Contents/MacOS/Sprite_Editor
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 10.15.4
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
-EXPORT__QMAKE_STASH_ = /Users/camillevanginkel/QTPractice/a7-sprite-editor-s22-CamilleVG/build-Sprite_Editor-Qt_6_2_3_for_macOS-Debug/.qmake.stash
+EXPORT__QMAKE_STASH_ = 
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = x86_64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -241,7 +234,7 @@ include /Users/camillevanginkel/Qt/6.2.3/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Sprite_Editor.app/Contents/MacOS/Sprite_Editor: ui_dimensiondialog.h ui_mainwindow.h ui_starterform.h $(OBJECTS)  
+Sprite_Editor.app/Contents/MacOS/Sprite_Editor: ui_mainwindow.h ui_starterform.h $(OBJECTS)  
 	@test -d Sprite_Editor.app/Contents/MacOS/ || mkdir -p Sprite_Editor.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -356,7 +349,6 @@ Makefile: ../Sprite_Editor/Sprite_Editor.pro ../../../Qt/6.2.3/macos/mkspecs/mac
 		../../../Qt/6.2.3/macos/mkspecs/features/qt_config.prf \
 		../../../Qt/6.2.3/macos/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/6.2.3/macos/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../../Qt/6.2.3/macos/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/mac/sdk.prf \
 		../../../Qt/6.2.3/macos/mkspecs/features/toolchain.prf \
@@ -501,7 +493,6 @@ Makefile: ../Sprite_Editor/Sprite_Editor.pro ../../../Qt/6.2.3/macos/mkspecs/mac
 ../../../Qt/6.2.3/macos/mkspecs/features/qt_config.prf:
 ../../../Qt/6.2.3/macos/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/6.2.3/macos/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../../Qt/6.2.3/macos/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/6.2.3/macos/mkspecs/features/mac/sdk.prf:
 ../../../Qt/6.2.3/macos/mkspecs/features/toolchain.prf:
@@ -563,9 +554,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Sprite_Editor/dimensiondialog.h ../Sprite_Editor/mainwindow.h ../Sprite_Editor/model.h ../Sprite_Editor/qcolordialogtester.h ../Sprite_Editor/starterform.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Sprite_Editor/dimensiondialog.cpp ../Sprite_Editor/main.cpp ../Sprite_Editor/mainwindow.cpp ../Sprite_Editor/model.cpp ../Sprite_Editor/qcolordialogtester.cpp ../Sprite_Editor/starterform.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Sprite_Editor/dimensiondialog.ui ../Sprite_Editor/mainwindow.ui ../Sprite_Editor/starterform.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Sprite_Editor/mainwindow.h ../Sprite_Editor/model.h ../Sprite_Editor/qcolordialogtester.h ../Sprite_Editor/starterform.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Sprite_Editor/main.cpp ../Sprite_Editor/mainwindow.cpp ../Sprite_Editor/model.cpp ../Sprite_Editor/qcolordialogtester.cpp ../Sprite_Editor/starterform.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Sprite_Editor/mainwindow.ui ../Sprite_Editor/starterform.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -575,7 +566,6 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r Sprite_Editor.app
-	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -594,32 +584,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_dimensiondialog.cpp moc_mainwindow.cpp moc_model.cpp moc_starterform.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_model.cpp moc_starterform.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_dimensiondialog.cpp moc_mainwindow.cpp moc_model.cpp moc_starterform.cpp
-moc_dimensiondialog.cpp: ../Sprite_Editor/dimensiondialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QDialog \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QAbstractButton \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
-		../Sprite_Editor/mainwindow.h \
-		../Sprite_Editor/model.h \
-		../../../Qt/6.2.3/macos/lib/QtGui.framework/Headers/QImage \
-		../../../Qt/6.2.3/macos/lib/QtGui.framework/Headers/qimage.h \
-		../../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/QObject \
-		../../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/qobject.h \
-		../Sprite_Editor/qcolordialogtester.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QColorDialog \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../Sprite_Editor/dimensiondialog.h \
-		../Sprite_Editor/starterform.h \
-		../../../Qt/6.2.3/macos/libexec/moc
-	/Users/camillevanginkel/Qt/6.2.3/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=11 -D__clang_minor__=0 -D__clang_patchlevel__=3 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/camillevanginkel/Qt/6.2.3/macos/mkspecs/macx-clang -I/Users/camillevanginkel/QTPractice/a7-sprite-editor-s22-CamilleVG/Sprite_Editor -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtWidgets.framework/Headers -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtGui.framework/Headers -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/camillevanginkel/Qt/6.2.3/macos/lib ../Sprite_Editor/dimensiondialog.h -o moc_dimensiondialog.cpp
-
+	-$(DEL_FILE) moc_mainwindow.cpp moc_model.cpp moc_starterform.cpp
 moc_mainwindow.cpp: ../Sprite_Editor/mainwindow.h \
 		../Sprite_Editor/model.h \
 		../../../Qt/6.2.3/macos/lib/QtGui.framework/Headers/QImage \
@@ -633,13 +600,9 @@ moc_mainwindow.cpp: ../Sprite_Editor/mainwindow.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../Sprite_Editor/dimensiondialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QDialog \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Sprite_Editor/starterform.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QAbstractButton \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
-		../Sprite_Editor/mainwindow.h \
-		../Sprite_Editor/starterform.h \
 		../../../Qt/6.2.3/macos/libexec/moc
 	/Users/camillevanginkel/Qt/6.2.3/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=11 -D__clang_minor__=0 -D__clang_patchlevel__=3 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/camillevanginkel/Qt/6.2.3/macos/mkspecs/macx-clang -I/Users/camillevanginkel/QTPractice/a7-sprite-editor-s22-CamilleVG/Sprite_Editor -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtWidgets.framework/Headers -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtGui.framework/Headers -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/camillevanginkel/Qt/6.2.3/macos/lib ../Sprite_Editor/mainwindow.h -o moc_mainwindow.cpp
 
@@ -654,6 +617,8 @@ moc_model.cpp: ../Sprite_Editor/model.h \
 moc_starterform.cpp: ../Sprite_Editor/starterform.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QAbstractButton \
+		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
 		../../../Qt/6.2.3/macos/libexec/moc
 	/Users/camillevanginkel/Qt/6.2.3/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=11 -D__clang_minor__=0 -D__clang_patchlevel__=3 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/camillevanginkel/Qt/6.2.3/macos/mkspecs/macx-clang -I/Users/camillevanginkel/QTPractice/a7-sprite-editor-s22-CamilleVG/Sprite_Editor -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtWidgets.framework/Headers -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtGui.framework/Headers -I/Users/camillevanginkel/Qt/6.2.3/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/camillevanginkel/Qt/6.2.3/macos/lib ../Sprite_Editor/starterform.h -o moc_starterform.cpp
 
@@ -661,13 +626,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_dimensiondialog.h ui_mainwindow.h ui_starterform.h
+compiler_uic_make_all: ui_mainwindow.h ui_starterform.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_dimensiondialog.h ui_mainwindow.h ui_starterform.h
-ui_dimensiondialog.h: ../Sprite_Editor/dimensiondialog.ui \
-		../../../Qt/6.2.3/macos/libexec/uic
-	/Users/camillevanginkel/Qt/6.2.3/macos/libexec/uic ../Sprite_Editor/dimensiondialog.ui -o ui_dimensiondialog.h
-
+	-$(DEL_FILE) ui_mainwindow.h ui_starterform.h
 ui_mainwindow.h: ../Sprite_Editor/mainwindow.ui \
 		../../../Qt/6.2.3/macos/libexec/uic
 	/Users/camillevanginkel/Qt/6.2.3/macos/libexec/uic ../Sprite_Editor/mainwindow.ui -o ui_mainwindow.h
@@ -688,28 +649,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-dimensiondialog.o: ../Sprite_Editor/dimensiondialog.cpp ../Sprite_Editor/dimensiondialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QDialog \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QAbstractButton \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
-		../Sprite_Editor/mainwindow.h \
-		../Sprite_Editor/model.h \
-		../../../Qt/6.2.3/macos/lib/QtGui.framework/Headers/QImage \
-		../../../Qt/6.2.3/macos/lib/QtGui.framework/Headers/qimage.h \
-		../../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/QObject \
-		../../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/qobject.h \
-		../Sprite_Editor/qcolordialogtester.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QColorDialog \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../Sprite_Editor/starterform.h \
-		ui_dimensiondialog.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dimensiondialog.o ../Sprite_Editor/dimensiondialog.cpp
-
 main.o: ../Sprite_Editor/main.cpp ../Sprite_Editor/mainwindow.h \
 		../Sprite_Editor/model.h \
 		../../../Qt/6.2.3/macos/lib/QtGui.framework/Headers/QImage \
@@ -723,12 +662,9 @@ main.o: ../Sprite_Editor/main.cpp ../Sprite_Editor/mainwindow.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../Sprite_Editor/dimensiondialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QDialog \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Sprite_Editor/starterform.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QAbstractButton \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
-		../Sprite_Editor/starterform.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Sprite_Editor/main.cpp
@@ -746,12 +682,9 @@ mainwindow.o: ../Sprite_Editor/mainwindow.cpp ../Sprite_Editor/mainwindow.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qcolordialog.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../Sprite_Editor/dimensiondialog.h \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QDialog \
-		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Sprite_Editor/starterform.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QAbstractButton \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
-		../Sprite_Editor/starterform.h \
 		ui_mainwindow.h \
 		../../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/6.2.3/macos/lib/QtCore.framework/Headers/qdebug.h
@@ -774,11 +707,10 @@ qcolordialogtester.o: ../Sprite_Editor/qcolordialogtester.cpp ../Sprite_Editor/q
 starterform.o: ../Sprite_Editor/starterform.cpp ../Sprite_Editor/starterform.h \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/QAbstractButton \
+		../../../Qt/6.2.3/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
 		ui_starterform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o starterform.o ../Sprite_Editor/starterform.cpp
-
-moc_dimensiondialog.o: moc_dimensiondialog.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dimensiondialog.o moc_dimensiondialog.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

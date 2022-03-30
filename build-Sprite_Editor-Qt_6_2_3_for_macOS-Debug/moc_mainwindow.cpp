@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[26];
-    char stringdata0[139];
+    const uint offsetsAndSize[30];
+    char stringdata0[160];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -41,13 +41,16 @@ QT_MOC_LITERAL(63, 4), // "_fps"
 QT_MOC_LITERAL(68, 32), // "on_colorPickerPushButton_clicked"
 QT_MOC_LITERAL(101, 15), // "RenderMainImage"
 QT_MOC_LITERAL(117, 5), // "frame"
-QT_MOC_LITERAL(123, 15) // "RenderAnimImage"
+QT_MOC_LITERAL(123, 15), // "RenderAnimImage"
+QT_MOC_LITERAL(139, 16), // "currColorChanged"
+QT_MOC_LITERAL(156, 3) // "col"
 
     },
     "MainWindow\0SetBrush\0\0std::string\0"
     "_brush\0SetColor\0_color\0SetFPS\0_fps\0"
     "on_colorPickerPushButton_clicked\0"
-    "RenderMainImage\0frame\0RenderAnimImage"
+    "RenderMainImage\0frame\0RenderAnimImage\0"
+    "currColorChanged\0col"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,7 +60,7 @@ static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -65,14 +68,15 @@ static const uint qt_meta_data_MainWindow[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   50,    2, 0x06,    1 /* Public */,
-       5,    1,   53,    2, 0x06,    3 /* Public */,
-       7,    1,   56,    2, 0x06,    5 /* Public */,
+       1,    1,   56,    2, 0x06,    1 /* Public */,
+       5,    1,   59,    2, 0x06,    3 /* Public */,
+       7,    1,   62,    2, 0x06,    5 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    0,   59,    2, 0x08,    7 /* Private */,
-      10,    1,   60,    2, 0x0a,    8 /* Public */,
-      12,    1,   63,    2, 0x0a,   10 /* Public */,
+       9,    0,   65,    2, 0x08,    7 /* Private */,
+      10,    1,   66,    2, 0x0a,    8 /* Public */,
+      12,    1,   69,    2, 0x0a,   10 /* Public */,
+      13,    1,   72,    2, 0x0a,   12 /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -83,6 +87,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QImage,   11,
     QMetaType::Void, QMetaType::QImage,   11,
+    QMetaType::Void, QMetaType::QColor,   14,
 
        0        // eod
 };
@@ -99,6 +104,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->on_colorPickerPushButton_clicked(); break;
         case 4: _t->RenderMainImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         case 5: _t->RenderAnimImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 6: _t->currColorChanged((*reinterpret_cast< QColor(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -135,7 +141,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 , QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::string, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>
 
 
 >,
@@ -162,13 +168,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
