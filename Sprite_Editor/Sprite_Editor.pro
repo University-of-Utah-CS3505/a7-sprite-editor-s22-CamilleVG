@@ -9,21 +9,21 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    dimensiondialog.cpp \
     main.cpp \
     mainwindow.cpp \
     model.cpp \
-    qcolordialogtester.cpp
+    qcolordialogtester.cpp \
+    starterform.cpp
 
 HEADERS += \
-    dimensiondialog.h \
     mainwindow.h \
     model.h \
-    qcolordialogtester.h
+    qcolordialogtester.h \
+    starterform.h
 
 FORMS += \
-    dimensiondialog.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    starterform.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

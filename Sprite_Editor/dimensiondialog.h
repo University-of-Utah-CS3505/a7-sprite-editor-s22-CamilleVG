@@ -23,7 +23,6 @@ private slots:
 
 private:
     Ui::DimensionDialog *ui;
-
 };
 
 #endif // DIMENSIONDIALOG_H

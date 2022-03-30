@@ -32,3 +32,4 @@ void MainWindow::RenderMainImage(QImage frame){
 void MainWindow::RenderAnimImage(QImage frame){
 
 }
+

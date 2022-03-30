@@ -5,7 +5,6 @@ DimensionDialog::DimensionDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DimensionDialog)
 {
-
     ui->setupUi(this);
 }
 
@@ -17,7 +16,6 @@ DimensionDialog::~DimensionDialog()
 void DimensionDialog::on_buttonBox_clicked()
 {
     qDebug() << "Worked";
-    //w.show();
 }
 
 

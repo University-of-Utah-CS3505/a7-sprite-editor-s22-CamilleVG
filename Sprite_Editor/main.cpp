@@ -11,6 +11,7 @@ int main( int argc, char **argv )
   Model model;
   MainWindow w(model, nullptr);
   w.show();
+  w.otherwindow.show();
 /*
   DimensionDialog dDialog(w, nullptr);
   dDialog.show();
