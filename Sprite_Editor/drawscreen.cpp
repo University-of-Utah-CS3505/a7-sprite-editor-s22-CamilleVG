@@ -50,10 +50,14 @@ void DrawScreen::drawRect(int x, int y)
 {
     QPainter painter(&image);
     QRect rect(std::floor(x / pixelSize) * pixelSize, std::floor(y / pixelSize) * pixelSize, pixelSize, pixelSize);
-    std::cout << x << "   " << y << std::endl;
 
     painter.fillRect(rect, QBrush(color));
 
+    update();
+}
+
+void DrawScreen::clear() {
+    image.fill(qRgba(200, 200, 200, 0));
     update();
 }
 
