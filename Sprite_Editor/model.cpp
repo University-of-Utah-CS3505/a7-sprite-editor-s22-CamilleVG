@@ -8,6 +8,10 @@ Model::Model(QObject *parent):
     QObject(parent)
 {}
 
+void Model::currColorChanged(QColor col){
+    currColor = col;
+}
+
 void Model::SetBrush(QString brush){
 
 }

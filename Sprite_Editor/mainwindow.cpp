@@ -8,6 +8,9 @@ MainWindow::MainWindow(Model &model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow){
     ui->setupUi(this);
+
+    connect(this, &MainWindow::currColorChanged, &model, &Model::currColorChanged);
+
 }
 
 MainWindow::~MainWindow(){
@@ -16,10 +19,11 @@ MainWindow::~MainWindow(){
 
 
 void MainWindow::on_colorPickerPushButton_clicked(){
-
+    qDebug() << "Yep";
     QColorDialogTester color;
-    currentColor = color.returnColor();
-    QString styleSheet = "background-color: rgb(" + QString::number(currentColor.red()) + "," + QString::number(currentColor.green()) + "," + QString::number(currentColor.blue()) + ")";
+    currColor = color.returnColor();
+    currColorChanged(currColor);
+    QString styleSheet = "background-color: rgb(" + QString::number(currColor.red()) + "," + QString::number(currColor.green()) + "," + QString::number(currColor.blue()) + ")";
     ui->currentColorFrame->setStyleSheet(styleSheet);
 }
 
@@ -28,6 +32,10 @@ void MainWindow::RenderMainImage(QImage frame){
 }
 
 void MainWindow::RenderAnimImage(QImage frame){
+
+}
+
+void MainWindow::currColorChanged(QColor col){
 
 }
 

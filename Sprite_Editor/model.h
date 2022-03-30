@@ -10,6 +10,7 @@ class Model: public QObject{
 
 private:
     QColor color;
+    QColor currColor;
     std::string brush;
     int fps;
 
@@ -25,6 +26,7 @@ public slots:
     void SetBrush(QString brush);
     void SetColor(QColor color);
     void SetFPS(int fps);
+    void currColorChanged(QColor col);
 
 signals:
     void RenderMainImage(QImage frame);

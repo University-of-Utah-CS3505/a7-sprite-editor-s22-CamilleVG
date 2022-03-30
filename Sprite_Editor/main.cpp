@@ -12,11 +12,5 @@ int main( int argc, char **argv ) {
   w.show();
   w.otherwindow.setWindowModality(Qt::ApplicationModal);
   w.otherwindow.show();
-
-/*
-  DimensionDialog dDialog(w, nullptr);
-  dDialog.show();
-  */
-
   return a.exec();
 }
