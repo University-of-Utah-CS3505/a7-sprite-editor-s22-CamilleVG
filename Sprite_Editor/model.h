@@ -21,14 +21,15 @@ private:
 public:
     Model(QObject *parent = nullptr);
 
-/*public slots:
-    void SetBrush(std::string _brush);
-    void SetColor(QColor _color);
-    void SetFPS(int _fps);
+
+public slots:
+    void SetBrush(QString brush);
+    void SetColor(QColor color);
+    void SetFPS(int fps);
 
 signals:
     void RenderMainImage(QImage frame);
-    void RenderAnimImage(QImage frame);*/
+    void RenderAnimImage(QImage frame);
 
 };
 

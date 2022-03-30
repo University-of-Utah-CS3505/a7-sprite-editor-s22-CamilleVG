@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QColorDialog>
 
-MainWindow::MainWindow(Model *model, QWidget *parent)
+MainWindow::MainWindow(Model &model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -20,10 +20,15 @@ MainWindow::~MainWindow()
 void MainWindow::on_colorPickerPushButton_clicked()
 {
     QColorDialogTester color;
-    QColor col = color.returnColor();
-    int red = col.red();
-    int green = col.green();
-    int blue = col.blue();
-    QString styleSheet = "background-color: rgb(" + QString::number(red) + "," + QString::number(green) + "," + QString::number(blue) + ")";
+    currentColor = color.returnColor();
+    QString styleSheet = "background-color: rgb(" + QString::number(currentColor.red()) + "," + QString::number(currentColor.green()) + "," + QString::number(currentColor.blue()) + ")";
     ui->currentColorFrame->setStyleSheet(styleSheet);
+}
+
+void MainWindow::RenderMainImage(QImage frame){
+
+}
+
+void MainWindow::RenderAnimImage(QImage frame){
+
 }
