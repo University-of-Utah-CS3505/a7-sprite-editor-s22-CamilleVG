@@ -17,17 +17,16 @@ public:
     MainWindow(Model *model, QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
-    void RenderMainImage(QImage frame);
-    void RenderAnimImage(QImage frame);
-
 private slots:
     void on_colorPickerPushButton_clicked();
+/*public slots:
+    void RenderMainImage(QImage frame);
+    void RenderAnimImage(QImage frame);
 
 signals:
     void SetBrush(std::string _brush);
     void SetColor(QColor _color);
-    void SetFPS(int _fps);
+    void SetFPS(int _fps);*/
 
 private:
     Ui::MainWindow *ui;

@@ -10,15 +10,19 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -27,6 +31,10 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionLoad;
+    QAction *actionSave;
+    QAction *actionNew;
+    QAction *actionClose;
     QWidget *centralwidget;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
@@ -37,9 +45,14 @@ public:
     QRadioButton *eraserRadioButton;
     QRadioButton *pencilRadioButton;
     QRadioButton *brushRadioButton;
-    QGroupBox *ColorGroupBox;
+    QRadioButton *colorDropperRadioButton;
     QPushButton *colorPickerPushButton;
+    QFrame *currentColorFrame;
+    QGraphicsView *graphicsView_2;
+    QPushButton *playPushButton;
+    QSlider *playSpeedHorizontalSlider;
     QMenuBar *menubar;
+    QMenu *menuFile;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -47,15 +60,23 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
+        actionLoad = new QAction(MainWindow);
+        actionLoad->setObjectName(QString::fromUtf8("actionLoad"));
+        actionSave = new QAction(MainWindow);
+        actionSave->setObjectName(QString::fromUtf8("actionSave"));
+        actionNew = new QAction(MainWindow);
+        actionNew->setObjectName(QString::fromUtf8("actionNew"));
+        actionClose = new QAction(MainWindow);
+        actionClose->setObjectName(QString::fromUtf8("actionClose"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setGeometry(QRect(150, 370, 621, 111));
+        scrollArea->setGeometry(QRect(210, 400, 531, 111));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 619, 109));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 529, 109));
         horizontalLayoutWidget = new QWidget(scrollAreaWidgetContents);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(19, 9, 531, 91));
@@ -65,10 +86,10 @@ public:
         scrollArea->setWidget(scrollAreaWidgetContents);
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(340, 100, 361, 241));
+        graphicsView->setGeometry(QRect(220, 50, 511, 331));
         ToolsGroupBox = new QGroupBox(centralwidget);
         ToolsGroupBox->setObjectName(QString::fromUtf8("ToolsGroupBox"));
-        ToolsGroupBox->setGeometry(QRect(10, 50, 120, 251));
+        ToolsGroupBox->setGeometry(QRect(10, 50, 161, 251));
         eraserRadioButton = new QRadioButton(ToolsGroupBox);
         eraserRadioButton->setObjectName(QString::fromUtf8("eraserRadioButton"));
         eraserRadioButton->setGeometry(QRect(10, 50, 99, 20));
@@ -78,20 +99,44 @@ public:
         brushRadioButton = new QRadioButton(ToolsGroupBox);
         brushRadioButton->setObjectName(QString::fromUtf8("brushRadioButton"));
         brushRadioButton->setGeometry(QRect(10, 160, 99, 20));
-        ColorGroupBox = new QGroupBox(centralwidget);
-        ColorGroupBox->setObjectName(QString::fromUtf8("ColorGroupBox"));
-        ColorGroupBox->setGeometry(QRect(10, 340, 120, 131));
+        colorDropperRadioButton = new QRadioButton(ToolsGroupBox);
+        colorDropperRadioButton->setObjectName(QString::fromUtf8("colorDropperRadioButton"));
+        colorDropperRadioButton->setGeometry(QRect(10, 210, 111, 20));
         colorPickerPushButton = new QPushButton(centralwidget);
         colorPickerPushButton->setObjectName(QString::fromUtf8("colorPickerPushButton"));
-        colorPickerPushButton->setGeometry(QRect(20, 20, 100, 32));
+        colorPickerPushButton->setGeometry(QRect(20, 10, 100, 32));
+        currentColorFrame = new QFrame(centralwidget);
+        currentColorFrame->setObjectName(QString::fromUtf8("currentColorFrame"));
+        currentColorFrame->setGeometry(QRect(130, 10, 31, 31));
+        currentColorFrame->setFrameShape(QFrame::StyledPanel);
+        currentColorFrame->setFrameShadow(QFrame::Raised);
+        graphicsView_2 = new QGraphicsView(centralwidget);
+        graphicsView_2->setObjectName(QString::fromUtf8("graphicsView_2"));
+        graphicsView_2->setGeometry(QRect(10, 330, 161, 121));
+        playPushButton = new QPushButton(centralwidget);
+        playPushButton->setObjectName(QString::fromUtf8("playPushButton"));
+        playPushButton->setGeometry(QRect(20, 490, 131, 32));
+        playSpeedHorizontalSlider = new QSlider(centralwidget);
+        playSpeedHorizontalSlider->setObjectName(QString::fromUtf8("playSpeedHorizontalSlider"));
+        playSpeedHorizontalSlider->setGeometry(QRect(10, 460, 160, 25));
+        playSpeedHorizontalSlider->setOrientation(Qt::Horizontal);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 24));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menuFile = new QMenu(menubar);
+        menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuFile->menuAction());
+        menuFile->addSeparator();
+        menuFile->addAction(actionLoad);
+        menuFile->addAction(actionSave);
+        menuFile->addAction(actionNew);
+        menuFile->addAction(actionClose);
 
         retranslateUi(MainWindow);
 
@@ -101,12 +146,18 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        actionLoad->setText(QCoreApplication::translate("MainWindow", "Load", nullptr));
+        actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
+        actionClose->setText(QCoreApplication::translate("MainWindow", "Close", nullptr));
         ToolsGroupBox->setTitle(QCoreApplication::translate("MainWindow", "GroupBox", nullptr));
         eraserRadioButton->setText(QCoreApplication::translate("MainWindow", "Eraser", nullptr));
         pencilRadioButton->setText(QCoreApplication::translate("MainWindow", "Pencil", nullptr));
         brushRadioButton->setText(QCoreApplication::translate("MainWindow", "Brush", nullptr));
-        ColorGroupBox->setTitle(QCoreApplication::translate("MainWindow", "GroupBox", nullptr));
+        colorDropperRadioButton->setText(QCoreApplication::translate("MainWindow", "Color Dropper", nullptr));
         colorPickerPushButton->setText(QCoreApplication::translate("MainWindow", "ColorPicker", nullptr));
+        playPushButton->setText(QCoreApplication::translate("MainWindow", "Play Actual Size", nullptr));
+        menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
     } // retranslateUi
 
 };
