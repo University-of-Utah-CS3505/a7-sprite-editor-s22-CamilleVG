@@ -9,7 +9,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent)
     , ui(new Ui::MainWindow) {
 
     ui->setupUi(this);
-    screen = new DrawScreen(50, &model, this);
+    screen = new DrawScreen(50, this);
     ui->drawGrid->addWidget(screen);
 
     connect(this, &MainWindow::currColorChanged, &model, &Model::currColorChanged);

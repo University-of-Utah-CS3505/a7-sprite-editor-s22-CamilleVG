@@ -3,12 +3,10 @@
 #include <QMouseEvent>
 #include <iostream>
 
-DrawScreen::DrawScreen(int pixels, Model *m, QWidget *parent)
+DrawScreen::DrawScreen(int pixels, QWidget *parent)
     : QWidget{parent}
 {
     setAttribute(Qt::WA_StaticContents);
-
-    model = m;
 
     QImage i(QSize(300, 300), QImage::Format_RGB32);
     image = i;

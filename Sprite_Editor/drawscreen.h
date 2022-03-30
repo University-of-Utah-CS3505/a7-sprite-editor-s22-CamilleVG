@@ -3,18 +3,16 @@
 
 #include <QWidget>
 #include <QPainter>
-#include "model.h"
 
 class DrawScreen : public QWidget
 {
     Q_OBJECT
 public:
-    DrawScreen(int pixels, Model *m, QWidget *parent = nullptr);
+    DrawScreen(int pixels, QWidget *parent = nullptr);
 
 private:
     int pixelSize;
     bool scribbling = false;
-    Model *model;
     QImage image;
 
 protected:
