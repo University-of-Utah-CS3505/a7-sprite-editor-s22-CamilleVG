@@ -27,14 +27,10 @@ private slots:
     void on_addFrame_clicked();
 
 public slots:
-    void RenderMainImage(QImage frame);
-    void RenderAnimImage(QImage frame);
     void assignDimensions(int size);
 
 signals:
-    void SetBrush(std::string _brush);
     void SetColor(QColor _color);
-    void SetFPS(int _fps);
     void AddFrame(QImage img);
 
 private:
