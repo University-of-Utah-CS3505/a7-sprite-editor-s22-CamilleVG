@@ -3,6 +3,7 @@
 
 #include "model.h"
 #include <QMainWindow>
+#include <QImage>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,4 +32,5 @@ signals:
 private:
     Ui::MainWindow *ui;
 };
+
 #endif // MAINWINDOW_H

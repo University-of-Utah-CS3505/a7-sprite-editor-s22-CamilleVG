@@ -3,20 +3,11 @@
 
 #include <vector>
 #include <QImage>
+#include <QObject>
 
-class Model
+class Model: public QObject
 {
-public:
-    Model();
-
-public slots:
-    void SetBrush(std::string _brush);
-    void SetColor(QColor _color);
-    void SetFPS(int _fps);
-
-signals:
-    void RenderMainImage(QImage frame);
-    void RenderAnimImage(QImage frame);
+    Q_OBJECT
 
 private:
     QColor color;
@@ -26,6 +17,18 @@ private:
     std::vector<QImage> frames;
     int currDrawFrameIndex = 0;
     int currAnimFrameIndex = 0;
+
+public:
+    Model(QObject *parent = nullptr);
+
+public slots:
+    void SetBrush(std::string _brush);
+    void SetColor(QColor _color);
+    void SetFPS(int _fps);
+
+signals:
+    void RenderMainImage(QImage frame);
+    void RenderAnimImage(QImage frame);
 
 };
 
