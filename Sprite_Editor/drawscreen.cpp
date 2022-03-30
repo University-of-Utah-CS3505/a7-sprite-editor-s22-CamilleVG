@@ -8,9 +8,12 @@ DrawScreen::DrawScreen(int pixels, QWidget *parent)
 {
     setAttribute(Qt::WA_StaticContents);
 
-    QImage i(QSize(300, 300), QImage::Format_RGB32);
+    int size = std::ceil(300 / pixels) * pixels;
+
+    QImage i(QSize(size, size), QImage::Format_RGB32);
     image = i;
-    pixelSize = 300 / pixels;
+    image.fill(qRgba(200, 200, 200, 0));
+    pixelSize = size / pixels;
 }
 
 void DrawScreen::mousePressEvent(QMouseEvent *event)
@@ -49,7 +52,11 @@ void DrawScreen::drawRect(int x, int y)
     QRect rect(std::floor(x / pixelSize) * pixelSize, std::floor(y / pixelSize) * pixelSize, pixelSize, pixelSize);
     std::cout << x << "   " << y << std::endl;
 
-    painter.fillRect(rect, QBrush(QColor("Red")));
+    painter.fillRect(rect, QBrush(color));
 
     update();
+}
+
+void DrawScreen::changeColor(QColor col){
+    color = col;
 }

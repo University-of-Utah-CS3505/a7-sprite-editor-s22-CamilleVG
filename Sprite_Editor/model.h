@@ -26,7 +26,6 @@ public slots:
     void SetBrush(QString brush);
     void SetColor(QColor color);
     void SetFPS(int fps);
-    void currColorChanged(QColor col);
 
 signals:
     void RenderMainImage(QImage frame);

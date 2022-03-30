@@ -10,7 +10,11 @@ class DrawScreen : public QWidget
 public:
     DrawScreen(int pixels, QWidget *parent = nullptr);
 
+public slots:
+    void changeColor(QColor);
+
 private:
+    QColor color;
     int pixelSize;
     bool scribbling = false;
     QImage image;
