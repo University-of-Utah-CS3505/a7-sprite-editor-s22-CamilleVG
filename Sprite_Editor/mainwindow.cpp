@@ -6,8 +6,11 @@
 
 MainWindow::MainWindow(Model &model, QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow){
+    , ui(new Ui::MainWindow) {
+
     ui->setupUi(this);
+    screen = new DrawScreen(50, &model, this);
+    ui->drawGrid->addWidget(screen);
 
     connect(this, &MainWindow::currColorChanged, &model, &Model::currColorChanged);
 

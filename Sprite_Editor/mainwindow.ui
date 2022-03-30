@@ -48,16 +48,6 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>50</y>
-      <width>511</width>
-      <height>331</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="ToolsGroupBox">
     <property name="geometry">
      <rect>
@@ -201,6 +191,24 @@
      <string>-</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>20</y>
+      <width>391</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="drawGrid" rowminimumheight="0" columnminimumwidth="0">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="horizontalSpacing">
+      <number>7</number>
+     </property>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -208,7 +216,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

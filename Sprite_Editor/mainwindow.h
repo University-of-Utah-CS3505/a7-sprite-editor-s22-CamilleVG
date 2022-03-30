@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "drawscreen.h"
 #include "model.h"
 #include "qcolordialogtester.h"
 #include <QMainWindow>
@@ -34,6 +35,7 @@ signals:
 
 private:
     Ui::MainWindow *ui;
+    DrawScreen *screen;
     QColor currColor;
 
 };
