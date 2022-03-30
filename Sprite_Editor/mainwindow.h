@@ -27,6 +27,7 @@ public slots:
     void RenderMainImage(QImage frame);
     void RenderAnimImage(QImage frame);
     void currColorChanged(QColor col);
+    void assignDimensions(int size);
 
 signals:
     void SetBrush(std::string _brush);

@@ -13,16 +13,33 @@ StarterForm::~StarterForm() {
 }
 
 void StarterForm::on_pushButton_clicked() {
+    int value;
 
-}
+    QString text = ui->sizeText->toPlainText();
+    if(text.isEmpty() || !(isNumber(text.toStdString()))) {
+        value = 20;
+    } else {
+        value = text.toInt();
+        if (value < 8) {
+            value = 8;
+        }
+        if (value > 64) {
+            value = 64;
+        }
+    }
 
+    imageSize = value;
 
-void StarterForm::on_pushButton_clicked(bool checked) {
+    emit(setDimensions(imageSize));
+
     this->hide();
 }
 
-
-void StarterForm::on_buttonBox_clicked(QAbstractButton *button) {
-    this->hide();
+bool StarterForm::isNumber(std::string s) {
+    for (char c : s) {
+        if (!std::isdigit(c))
+            return false;
+    }
+    return true;
 }
 

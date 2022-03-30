@@ -9,9 +9,8 @@ MainWindow::MainWindow(Model &model, QWidget *parent)
     , ui(new Ui::MainWindow) {
 
     ui->setupUi(this);
-    screen = new DrawScreen(50, this);
-    ui->drawGrid->addWidget(screen);
 
+    connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::assignDimensions);
     connect(this, &MainWindow::currColorChanged, &model, &Model::currColorChanged);
 
 }
@@ -20,9 +19,12 @@ MainWindow::~MainWindow(){
     delete ui;
 }
 
+void MainWindow::assignDimensions(int size) {
+    screen = new DrawScreen(otherwindow.imageSize, this);
+    ui->drawGrid->addWidget(screen);
+}
 
 void MainWindow::on_colorPickerPushButton_clicked(){
-    qDebug() << "Yep";
     QColorDialogTester color;
     currColor = color.returnColor();
     currColorChanged(currColor);

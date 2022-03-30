@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QAbstractButton>
+#include <iostream>
 
 namespace Ui {
 class StarterForm;
@@ -14,16 +15,17 @@ class StarterForm : public QWidget{
 public:
     explicit StarterForm(QWidget *parent = nullptr);
     ~StarterForm();
+    int imageSize;
+
+signals:
+    void setDimensions(int size);
 
 private slots:
     void on_pushButton_clicked();
 
-    void on_pushButton_clicked(bool checked);
-
-    void on_buttonBox_clicked(QAbstractButton *button);
-
 private:
     Ui::StarterForm *ui;
+    bool isNumber(std::string s);
 };
 
 #endif // STARTERFORM_H
