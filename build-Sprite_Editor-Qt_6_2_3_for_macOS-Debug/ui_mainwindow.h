@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
@@ -40,7 +41,6 @@ public:
     QWidget *scrollAreaWidgetContents;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
-    QGraphicsView *graphicsView;
     QGroupBox *ToolsGroupBox;
     QRadioButton *eraserRadioButton;
     QRadioButton *pencilRadioButton;
@@ -52,6 +52,8 @@ public:
     QSlider *playSpeedHorizontalSlider;
     QPushButton *addFrame;
     QPushButton *deleteFrame;
+    QWidget *gridLayoutWidget;
+    QGridLayout *drawGrid;
     QMenuBar *menubar;
     QMenu *menuFile;
     QStatusBar *statusbar;
@@ -85,9 +87,6 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         scrollArea->setWidget(scrollAreaWidgetContents);
-        graphicsView = new QGraphicsView(centralwidget);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(210, 50, 511, 331));
         ToolsGroupBox = new QGroupBox(centralwidget);
         ToolsGroupBox->setObjectName(QString::fromUtf8("ToolsGroupBox"));
         ToolsGroupBox->setGeometry(QRect(10, 70, 161, 201));
@@ -124,10 +123,18 @@ public:
         deleteFrame = new QPushButton(centralwidget);
         deleteFrame->setObjectName(QString::fromUtf8("deleteFrame"));
         deleteFrame->setGeometry(QRect(740, 460, 31, 24));
+        gridLayoutWidget = new QWidget(centralwidget);
+        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(280, 20, 391, 351));
+        drawGrid = new QGridLayout(gridLayoutWidget);
+        drawGrid->setObjectName(QString::fromUtf8("drawGrid"));
+        drawGrid->setSizeConstraint(QLayout::SetDefaultConstraint);
+        drawGrid->setHorizontalSpacing(7);
+        drawGrid->setContentsMargins(0, 0, 0, 0);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 24));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainWindow->setMenuBar(menubar);

@@ -10,9 +10,7 @@
 #define UI_STARTERFORM_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
@@ -23,46 +21,32 @@ QT_BEGIN_NAMESPACE
 class Ui_StarterForm
 {
 public:
-    QPushButton *pushButton;
-    QTextEdit *textEdit;
+    QTextEdit *sizeText;
     QLabel *widthLabel;
-    QLabel *heightLabel;
-    QDialogButtonBox *buttonBox;
     QLabel *widthLabel_2;
-    QTextEdit *textEdit_2;
-    QLabel *widthLabel_3;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
 
     void setupUi(QWidget *StarterForm)
     {
         if (StarterForm->objectName().isEmpty())
             StarterForm->setObjectName(QString::fromUtf8("StarterForm"));
         StarterForm->resize(400, 300);
-        pushButton = new QPushButton(StarterForm);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 260, 100, 32));
-        textEdit = new QTextEdit(StarterForm);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(130, 70, 171, 31));
+        sizeText = new QTextEdit(StarterForm);
+        sizeText->setObjectName(QString::fromUtf8("sizeText"));
+        sizeText->setGeometry(QRect(120, 110, 171, 31));
         widthLabel = new QLabel(StarterForm);
         widthLabel->setObjectName(QString::fromUtf8("widthLabel"));
-        widthLabel->setGeometry(QRect(40, 70, 71, 31));
-        heightLabel = new QLabel(StarterForm);
-        heightLabel->setObjectName(QString::fromUtf8("heightLabel"));
-        heightLabel->setGeometry(QRect(40, 150, 71, 31));
-        buttonBox = new QDialogButtonBox(StarterForm);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setGeometry(QRect(30, 220, 341, 32));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        widthLabel->setGeometry(QRect(30, 110, 71, 31));
         widthLabel_2 = new QLabel(StarterForm);
         widthLabel_2->setObjectName(QString::fromUtf8("widthLabel_2"));
-        widthLabel_2->setGeometry(QRect(310, 60, 71, 31));
-        textEdit_2 = new QTextEdit(StarterForm);
-        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
-        textEdit_2->setGeometry(QRect(130, 150, 171, 31));
-        widthLabel_3 = new QLabel(StarterForm);
-        widthLabel_3->setObjectName(QString::fromUtf8("widthLabel_3"));
-        widthLabel_3->setGeometry(QRect(310, 140, 71, 31));
+        widthLabel_2->setGeometry(QRect(300, 100, 71, 31));
+        pushButton = new QPushButton(StarterForm);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(270, 220, 93, 29));
+        pushButton_2 = new QPushButton(StarterForm);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(160, 220, 93, 29));
 
         retranslateUi(StarterForm);
 
@@ -72,13 +56,11 @@ public:
     void retranslateUi(QWidget *StarterForm)
     {
         StarterForm->setWindowTitle(QCoreApplication::translate("StarterForm", "Form", nullptr));
-        pushButton->setText(QCoreApplication::translate("StarterForm", "Close Window", nullptr));
-        textEdit->setPlaceholderText(QCoreApplication::translate("StarterForm", "64", nullptr));
-        widthLabel->setText(QCoreApplication::translate("StarterForm", "Width", nullptr));
-        heightLabel->setText(QCoreApplication::translate("StarterForm", "Height", nullptr));
+        sizeText->setPlaceholderText(QCoreApplication::translate("StarterForm", "64", nullptr));
+        widthLabel->setText(QCoreApplication::translate("StarterForm", "Size", nullptr));
         widthLabel_2->setText(QCoreApplication::translate("StarterForm", "px", nullptr));
-        textEdit_2->setPlaceholderText(QCoreApplication::translate("StarterForm", "64", nullptr));
-        widthLabel_3->setText(QCoreApplication::translate("StarterForm", "px", nullptr));
+        pushButton->setText(QCoreApplication::translate("StarterForm", "Ok", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("StarterForm", "Cancel", nullptr));
     } // retranslateUi
 
 };

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[30];
-    char stringdata0[160];
+    const uint offsetsAndSize[34];
+    char stringdata0[209];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -39,18 +39,21 @@ QT_MOC_LITERAL(49, 6), // "_color"
 QT_MOC_LITERAL(56, 6), // "SetFPS"
 QT_MOC_LITERAL(63, 4), // "_fps"
 QT_MOC_LITERAL(68, 32), // "on_colorPickerPushButton_clicked"
-QT_MOC_LITERAL(101, 15), // "RenderMainImage"
-QT_MOC_LITERAL(117, 5), // "frame"
-QT_MOC_LITERAL(123, 15), // "RenderAnimImage"
-QT_MOC_LITERAL(139, 16), // "currColorChanged"
-QT_MOC_LITERAL(156, 3) // "col"
+QT_MOC_LITERAL(101, 23), // "on_actionSave_triggered"
+QT_MOC_LITERAL(125, 23), // "on_actionLoad_triggered"
+QT_MOC_LITERAL(149, 15), // "RenderMainImage"
+QT_MOC_LITERAL(165, 5), // "frame"
+QT_MOC_LITERAL(171, 15), // "RenderAnimImage"
+QT_MOC_LITERAL(187, 16), // "assignDimensions"
+QT_MOC_LITERAL(204, 4) // "size"
 
     },
     "MainWindow\0SetBrush\0\0std::string\0"
     "_brush\0SetColor\0_color\0SetFPS\0_fps\0"
     "on_colorPickerPushButton_clicked\0"
+    "on_actionSave_triggered\0on_actionLoad_triggered\0"
     "RenderMainImage\0frame\0RenderAnimImage\0"
-    "currColorChanged\0col"
+    "assignDimensions\0size"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,7 +63,7 @@ static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,15 +71,17 @@ static const uint qt_meta_data_MainWindow[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   56,    2, 0x06,    1 /* Public */,
-       5,    1,   59,    2, 0x06,    3 /* Public */,
-       7,    1,   62,    2, 0x06,    5 /* Public */,
+       1,    1,   68,    2, 0x06,    1 /* Public */,
+       5,    1,   71,    2, 0x06,    3 /* Public */,
+       7,    1,   74,    2, 0x06,    5 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    0,   65,    2, 0x08,    7 /* Private */,
-      10,    1,   66,    2, 0x0a,    8 /* Public */,
-      12,    1,   69,    2, 0x0a,   10 /* Public */,
-      13,    1,   72,    2, 0x0a,   12 /* Public */,
+       9,    0,   77,    2, 0x08,    7 /* Private */,
+      10,    0,   78,    2, 0x08,    8 /* Private */,
+      11,    0,   79,    2, 0x08,    9 /* Private */,
+      12,    1,   80,    2, 0x0a,   10 /* Public */,
+      14,    1,   83,    2, 0x0a,   12 /* Public */,
+      15,    1,   86,    2, 0x0a,   14 /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -85,9 +90,11 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QImage,   11,
-    QMetaType::Void, QMetaType::QImage,   11,
-    QMetaType::Void, QMetaType::QColor,   14,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QImage,   13,
+    QMetaType::Void, QMetaType::QImage,   13,
+    QMetaType::Void, QMetaType::Int,   16,
 
        0        // eod
 };
@@ -102,9 +109,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->SetColor((*reinterpret_cast< QColor(*)>(_a[1]))); break;
         case 2: _t->SetFPS((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 3: _t->on_colorPickerPushButton_clicked(); break;
-        case 4: _t->RenderMainImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 5: _t->RenderAnimImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 6: _t->currColorChanged((*reinterpret_cast< QColor(*)>(_a[1]))); break;
+        case 4: _t->on_actionSave_triggered(); break;
+        case 5: _t->on_actionLoad_triggered(); break;
+        case 6: _t->RenderMainImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 7: _t->RenderAnimImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 8: _t->assignDimensions((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -141,7 +150,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 , QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::string, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
 
 
 >,
@@ -168,13 +177,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }

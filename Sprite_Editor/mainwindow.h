@@ -22,6 +22,9 @@ public:
 
 private slots:
     void on_colorPickerPushButton_clicked();
+    void on_actionSave_triggered();
+
+    void on_actionLoad_triggered();
 
 public slots:
     void RenderMainImage(QImage frame);
