@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    model.cpp
+    model.cpp \
+    qcolordialogtester.cpp
 
 HEADERS += \
     mainwindow.h \
-    model.h
+    model.h \
+    qcolordialogtester.h
 
 FORMS += \
     mainwindow.ui

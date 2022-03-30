@@ -2,8 +2,10 @@
 #define MAINWINDOW_H
 
 #include "model.h"
+#include "qcolordialogtester.h"
 #include <QMainWindow>
 #include <QImage>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +21,7 @@ public:
 
 private slots:
     void on_colorPickerPushButton_clicked();
+
 /*public slots:
     void RenderMainImage(QImage frame);
     void RenderAnimImage(QImage frame);

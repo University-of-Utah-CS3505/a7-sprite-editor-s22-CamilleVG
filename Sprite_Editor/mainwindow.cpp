@@ -4,20 +4,6 @@
 #include <QDebug>
 #include <QColorDialog>
 
-class QColorDialogTester : public QWidget
-{
-public:
-  void onColor()
-  {
-    QColor color = QColorDialog::getColor(Qt::yellow, this );
-    if( color.isValid() )
-    {
-      qDebug() << "Color Choosen : " << color.name();
-    }
-  }
-
-};
-
 MainWindow::MainWindow(Model *model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -33,7 +19,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_colorPickerPushButton_clicked()
 {
-    QColorDialogTester color_test;
-    color_test.onColor();
+    QColorDialogTester color;
+    QColor col = color.returnColor();
+    int red = col.red();
+    int green = col.green();
+    int blue = col.blue();
+    QString styleSheet = "background-color: rgb(" + QString::number(red) + "," + QString::number(green) + "," + QString::number(blue) + ")";
+    ui->currentColorFrame->setStyleSheet(styleSheet);
 }
-
