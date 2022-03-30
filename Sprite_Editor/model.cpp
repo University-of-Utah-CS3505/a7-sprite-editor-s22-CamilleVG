@@ -8,5 +8,10 @@ Model::Model(QObject *parent):
 
 void Model::AddFrame(QImage img) {
     frames.push_back(img);
-    qDebug() << frames.size();
+    emit(UpdateLayout(frames));
+    currFrameIndex++;
+}
+
+void Model::UpdateFrame(QImage img) {
+    frames.at(currFrameIndex - 1) = img;
 }

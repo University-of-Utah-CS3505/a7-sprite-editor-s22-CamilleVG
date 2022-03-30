@@ -28,12 +28,15 @@ private slots:
 
 public slots:
     void assignDimensions(int size);
+    void UpdateLayout(std::vector<QImage> frames);
 
 signals:
     void SetColor(QColor _color);
     void AddFrame(QImage img);
+    void UpdateFrame(QImage img);
 
 private:
+    void ClearLayout();
     Ui::MainWindow *ui;
     DrawScreen *screen;
     QColor currColor;

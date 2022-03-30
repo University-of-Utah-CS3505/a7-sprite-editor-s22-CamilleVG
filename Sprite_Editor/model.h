@@ -19,9 +19,10 @@ public:
 
 public slots:
     void AddFrame(QImage img);
+    void UpdateFrame(QImage img);
 
 signals:
-
+    void UpdateLayout(std::vector<QImage> frames);
 
 };
 
