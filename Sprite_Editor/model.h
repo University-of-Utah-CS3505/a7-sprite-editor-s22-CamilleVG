@@ -5,6 +5,7 @@
 #include <QImage>
 #include <QObject>
 #include <QDebug>
+#include <QTimer>
 
 class Model: public QObject{
     Q_OBJECT
@@ -12,6 +13,7 @@ class Model: public QObject{
 private:
     std::vector<QImage> frames;
     int currFrameIndex;
+    int playerIndex;
 
 public:
     Model(QObject *parent = nullptr);
@@ -23,11 +25,13 @@ public slots:
     //void UpdateCorrespondingFrameSlot();
     void NextFrameSlot();
     void PreviousFrameSlot();
+    void GetFrames();
+    void SendPlayerFrame();
 
 signals:
     void UpdateLayout(std::vector<QImage> frames);
     void SetImageSignal(QImage img);
-
+    void SendFrames(QImage img);
 };
 
 #endif // MODEL_H

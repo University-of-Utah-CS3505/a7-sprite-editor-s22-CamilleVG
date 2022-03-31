@@ -13,10 +13,10 @@
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -24,6 +24,7 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSlider>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -47,7 +48,6 @@ public:
     QRadioButton *brushRadioButton;
     QPushButton *colorPickerPushButton;
     QFrame *currentColorFrame;
-    QGraphicsView *graphicsView_2;
     QPushButton *playPushButton;
     QSlider *playSpeedHorizontalSlider;
     QPushButton *addFrame;
@@ -56,6 +56,8 @@ public:
     QGridLayout *drawGrid;
     QPushButton *nextButton;
     QPushButton *previousButton;
+    QSpinBox *fpsSpinBox;
+    QLabel *playBackLabel;
     QMenuBar *menubar;
     QMenu *menuFile;
     QStatusBar *statusbar;
@@ -116,15 +118,13 @@ public:
         currentColorFrame->setGeometry(QRect(130, 10, 31, 31));
         currentColorFrame->setFrameShape(QFrame::StyledPanel);
         currentColorFrame->setFrameShadow(QFrame::Raised);
-        graphicsView_2 = new QGraphicsView(centralwidget);
-        graphicsView_2->setObjectName(QString::fromUtf8("graphicsView_2"));
-        graphicsView_2->setGeometry(QRect(10, 330, 161, 121));
         playPushButton = new QPushButton(centralwidget);
         playPushButton->setObjectName(QString::fromUtf8("playPushButton"));
-        playPushButton->setGeometry(QRect(20, 490, 131, 32));
+        playPushButton->setGeometry(QRect(20, 510, 131, 32));
         playSpeedHorizontalSlider = new QSlider(centralwidget);
         playSpeedHorizontalSlider->setObjectName(QString::fromUtf8("playSpeedHorizontalSlider"));
         playSpeedHorizontalSlider->setGeometry(QRect(10, 460, 160, 25));
+        playSpeedHorizontalSlider->setMaximum(10);
         playSpeedHorizontalSlider->setOrientation(Qt::Horizontal);
         addFrame = new QPushButton(centralwidget);
         addFrame->setObjectName(QString::fromUtf8("addFrame"));
@@ -146,10 +146,17 @@ public:
         previousButton = new QPushButton(centralwidget);
         previousButton->setObjectName(QString::fromUtf8("previousButton"));
         previousButton->setGeometry(QRect(740, 500, 31, 24));
+        fpsSpinBox = new QSpinBox(centralwidget);
+        fpsSpinBox->setObjectName(QString::fromUtf8("fpsSpinBox"));
+        fpsSpinBox->setGeometry(QRect(60, 480, 44, 25));
+        fpsSpinBox->setMaximum(10);
+        playBackLabel = new QLabel(centralwidget);
+        playBackLabel->setObjectName(QString::fromUtf8("playBackLabel"));
+        playBackLabel->setGeometry(QRect(10, 310, 161, 121));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 24));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainWindow->setMenuBar(menubar);
@@ -165,6 +172,8 @@ public:
         menuFile->addAction(actionClose);
 
         retranslateUi(MainWindow);
+        QObject::connect(playSpeedHorizontalSlider, &QSlider::valueChanged, fpsSpinBox, &QSpinBox::setValue);
+        QObject::connect(fpsSpinBox, &QSpinBox::valueChanged, playSpeedHorizontalSlider, &QSlider::setValue);
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -186,6 +195,7 @@ public:
         deleteFrame->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         nextButton->setText(QCoreApplication::translate("MainWindow", ">", nullptr));
         previousButton->setText(QCoreApplication::translate("MainWindow", "<", nullptr));
+        playBackLabel->setText(QString());
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
     } // retranslateUi
 

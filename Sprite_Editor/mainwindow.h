@@ -37,6 +37,7 @@ public slots:
     void assignDimensions(int size);
     void UpdateLayout(std::vector<QImage> frames);
     void SetFrame(QImage img);
+    void UpdatePlayBack(QImage frame);
 
 signals:
     void SetColor(QColor _color);
@@ -44,6 +45,7 @@ signals:
     void UpdateFrame(QImage img);
     void NextFrameSignal();
     void PreviousFrameSignal();
+    void PlayPlayBackLabel();
 
 private:
     void ClearLayout();

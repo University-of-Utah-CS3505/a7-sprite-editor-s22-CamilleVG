@@ -19,6 +19,10 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(this, &MainWindow::NextFrameSignal, &model, &Model::NextFrameSlot);
     connect(this, &MainWindow::PreviousFrameSignal, &model, &Model::PreviousFrameSlot);
     connect(&model, &Model::SetImageSignal, this, &MainWindow::SetFrame);
+    connect(this, &MainWindow::PlayPlayBackLabel, &model, &Model::GetFrames);
+    connect(&model, &Model::SendFrames, this, &MainWindow::UpdatePlayBack);
+
+
 }
 
 MainWindow::~MainWindow(){
@@ -29,7 +33,7 @@ void MainWindow::assignDimensions(int size) {
     screen = new DrawScreen(otherwindow.imageSize, this);
     ui->drawGrid->addWidget(screen);
     emit(AddFrame(screen->image));
-
+    emit PlayPlayBackLabel();
     connect(this, &MainWindow::SetColor, screen, &DrawScreen::changeColor);
 }
 
@@ -131,5 +135,11 @@ void MainWindow::on_previousButton_clicked()
 {
     emit UpdateFrame(screen->image);
     emit PreviousFrameSignal();
+}
+
+void MainWindow::UpdatePlayBack(QImage frame) {
+        ui->playBackLabel->setFixedSize(100, 100);
+        ui->playBackLabel->setPixmap(QPixmap::fromImage(frame));
+        ui->playBackLabel->setScaledContents(true);
 }
 

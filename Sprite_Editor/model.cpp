@@ -1,10 +1,9 @@
 #include "model.h"
-
-
 Model::Model(QObject *parent):
     QObject(parent)
 {
     currFrameIndex = 0;
+    playerIndex = 0;
 }
 
 void Model::AddFrame(QImage img) {
@@ -34,4 +33,20 @@ void Model::PreviousFrameSlot(){
     }
     emit SetImageSignal(frames.at(currFrameIndex));
     emit UpdateLayout(frames);
+}
+
+void Model::GetFrames(){
+    int time = 0;
+    playerIndex = 0;
+    for (int i = 0; i < frames.size(); i++) {
+             time +=100;
+             QTimer::singleShot(time, this, &Model::SendPlayerFrame);
+             if (i == frames.size()-1) {
+                 QTimer::singleShot(time, this, &Model::GetFrames);
+             }
+    }
+}
+void Model::SendPlayerFrame(){
+    emit SendFrames(frames[playerIndex]);
+    playerIndex++;
 }

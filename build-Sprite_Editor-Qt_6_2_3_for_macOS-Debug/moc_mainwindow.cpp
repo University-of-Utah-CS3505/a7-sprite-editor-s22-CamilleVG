@@ -23,8 +23,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[42];
-    char stringdata0[309];
+    const uint offsetsAndSize[48];
+    char stringdata0[348];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -39,29 +39,32 @@ QT_MOC_LITERAL(37, 3), // "img"
 QT_MOC_LITERAL(41, 11), // "UpdateFrame"
 QT_MOC_LITERAL(53, 15), // "NextFrameSignal"
 QT_MOC_LITERAL(69, 19), // "PreviousFrameSignal"
-QT_MOC_LITERAL(89, 32), // "on_colorPickerPushButton_clicked"
-QT_MOC_LITERAL(122, 23), // "on_actionSave_triggered"
-QT_MOC_LITERAL(146, 23), // "on_actionLoad_triggered"
-QT_MOC_LITERAL(170, 19), // "on_addFrame_clicked"
-QT_MOC_LITERAL(190, 21), // "on_nextButton_clicked"
-QT_MOC_LITERAL(212, 25), // "on_previousButton_clicked"
-QT_MOC_LITERAL(238, 16), // "assignDimensions"
-QT_MOC_LITERAL(255, 4), // "size"
-QT_MOC_LITERAL(260, 12), // "UpdateLayout"
-QT_MOC_LITERAL(273, 19), // "std::vector<QImage>"
-QT_MOC_LITERAL(293, 6), // "frames"
-QT_MOC_LITERAL(300, 8) // "SetFrame"
+QT_MOC_LITERAL(89, 17), // "PlayPlayBackLabel"
+QT_MOC_LITERAL(107, 32), // "on_colorPickerPushButton_clicked"
+QT_MOC_LITERAL(140, 23), // "on_actionSave_triggered"
+QT_MOC_LITERAL(164, 23), // "on_actionLoad_triggered"
+QT_MOC_LITERAL(188, 19), // "on_addFrame_clicked"
+QT_MOC_LITERAL(208, 21), // "on_nextButton_clicked"
+QT_MOC_LITERAL(230, 25), // "on_previousButton_clicked"
+QT_MOC_LITERAL(256, 16), // "assignDimensions"
+QT_MOC_LITERAL(273, 4), // "size"
+QT_MOC_LITERAL(278, 12), // "UpdateLayout"
+QT_MOC_LITERAL(291, 19), // "std::vector<QImage>"
+QT_MOC_LITERAL(311, 6), // "frames"
+QT_MOC_LITERAL(318, 8), // "SetFrame"
+QT_MOC_LITERAL(327, 14), // "UpdatePlayBack"
+QT_MOC_LITERAL(342, 5) // "frame"
 
     },
     "MainWindow\0SetColor\0\0_color\0AddFrame\0"
     "img\0UpdateFrame\0NextFrameSignal\0"
-    "PreviousFrameSignal\0"
+    "PreviousFrameSignal\0PlayPlayBackLabel\0"
     "on_colorPickerPushButton_clicked\0"
     "on_actionSave_triggered\0on_actionLoad_triggered\0"
     "on_addFrame_clicked\0on_nextButton_clicked\0"
     "on_previousButton_clicked\0assignDimensions\0"
     "size\0UpdateLayout\0std::vector<QImage>\0"
-    "frames\0SetFrame"
+    "frames\0SetFrame\0UpdatePlayBack\0frame"
 };
 #undef QT_MOC_LITERAL
 
@@ -71,35 +74,38 @@ static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       5,       // signalCount
+       6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   98,    2, 0x06,    1 /* Public */,
-       4,    1,  101,    2, 0x06,    3 /* Public */,
-       6,    1,  104,    2, 0x06,    5 /* Public */,
-       7,    0,  107,    2, 0x06,    7 /* Public */,
-       8,    0,  108,    2, 0x06,    8 /* Public */,
+       1,    1,  110,    2, 0x06,    1 /* Public */,
+       4,    1,  113,    2, 0x06,    3 /* Public */,
+       6,    1,  116,    2, 0x06,    5 /* Public */,
+       7,    0,  119,    2, 0x06,    7 /* Public */,
+       8,    0,  120,    2, 0x06,    8 /* Public */,
+       9,    0,  121,    2, 0x06,    9 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    0,  109,    2, 0x08,    9 /* Private */,
-      10,    0,  110,    2, 0x08,   10 /* Private */,
-      11,    0,  111,    2, 0x08,   11 /* Private */,
-      12,    0,  112,    2, 0x08,   12 /* Private */,
-      13,    0,  113,    2, 0x08,   13 /* Private */,
-      14,    0,  114,    2, 0x08,   14 /* Private */,
-      15,    1,  115,    2, 0x0a,   15 /* Public */,
-      17,    1,  118,    2, 0x0a,   17 /* Public */,
-      20,    1,  121,    2, 0x0a,   19 /* Public */,
+      10,    0,  122,    2, 0x08,   10 /* Private */,
+      11,    0,  123,    2, 0x08,   11 /* Private */,
+      12,    0,  124,    2, 0x08,   12 /* Private */,
+      13,    0,  125,    2, 0x08,   13 /* Private */,
+      14,    0,  126,    2, 0x08,   14 /* Private */,
+      15,    0,  127,    2, 0x08,   15 /* Private */,
+      16,    1,  128,    2, 0x0a,   16 /* Public */,
+      18,    1,  131,    2, 0x0a,   18 /* Public */,
+      21,    1,  134,    2, 0x0a,   20 /* Public */,
+      22,    1,  137,    2, 0x0a,   22 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QColor,    3,
     QMetaType::Void, QMetaType::QImage,    5,
     QMetaType::Void, QMetaType::QImage,    5,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -110,9 +116,10 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   16,
-    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, QMetaType::Int,   17,
+    QMetaType::Void, 0x80000000 | 19,   20,
     QMetaType::Void, QMetaType::QImage,    5,
+    QMetaType::Void, QMetaType::QImage,   23,
 
        0        // eod
 };
@@ -128,15 +135,17 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->UpdateFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         case 3: _t->NextFrameSignal(); break;
         case 4: _t->PreviousFrameSignal(); break;
-        case 5: _t->on_colorPickerPushButton_clicked(); break;
-        case 6: _t->on_actionSave_triggered(); break;
-        case 7: _t->on_actionLoad_triggered(); break;
-        case 8: _t->on_addFrame_clicked(); break;
-        case 9: _t->on_nextButton_clicked(); break;
-        case 10: _t->on_previousButton_clicked(); break;
-        case 11: _t->assignDimensions((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 12: _t->UpdateLayout((*reinterpret_cast< std::vector<QImage>(*)>(_a[1]))); break;
-        case 13: _t->SetFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 5: _t->PlayPlayBackLabel(); break;
+        case 6: _t->on_colorPickerPushButton_clicked(); break;
+        case 7: _t->on_actionSave_triggered(); break;
+        case 8: _t->on_actionLoad_triggered(); break;
+        case 9: _t->on_addFrame_clicked(); break;
+        case 10: _t->on_nextButton_clicked(); break;
+        case 11: _t->on_previousButton_clicked(); break;
+        case 12: _t->assignDimensions((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 13: _t->UpdateLayout((*reinterpret_cast< std::vector<QImage>(*)>(_a[1]))); break;
+        case 14: _t->SetFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 15: _t->UpdatePlayBack((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -176,6 +185,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
                 return;
             }
         }
+        {
+            using _t = void (MainWindow::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::PlayPlayBackLabel)) {
+                *result = 5;
+                return;
+            }
+        }
     }
 }
 
@@ -186,8 +202,8 @@ const QMetaObject MainWindow::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
-, QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>
+, QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>
 
 
 >,
@@ -214,13 +230,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 16)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 14;
+        _id -= 16;
     }
     return _id;
 }
@@ -256,6 +272,12 @@ void MainWindow::NextFrameSignal()
 void MainWindow::PreviousFrameSignal()
 {
     QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+
+// SIGNAL 5
+void MainWindow::PlayPlayBackLabel()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
