@@ -39,7 +39,7 @@ public:
     QWidget *centralwidget;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_2;
     QHBoxLayout *horizontalLayout;
     QGroupBox *ToolsGroupBox;
     QRadioButton *eraserRadioButton;
@@ -54,6 +54,8 @@ public:
     QPushButton *deleteFrame;
     QWidget *gridLayoutWidget;
     QGridLayout *drawGrid;
+    QPushButton *nextButton;
+    QPushButton *previousButton;
     QMenuBar *menubar;
     QMenu *menuFile;
     QStatusBar *statusbar;
@@ -75,17 +77,24 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setGeometry(QRect(210, 400, 511, 111));
+        scrollArea->setGeometry(QRect(210, 400, 521, 141));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(scrollArea->sizePolicy().hasHeightForWidth());
+        scrollArea->setSizePolicy(sizePolicy);
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 509, 109));
-        horizontalLayoutWidget = new QWidget(scrollAreaWidgetContents);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(19, 9, 481, 91));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 519, 139));
+        horizontalLayout_2 = new QHBoxLayout(scrollAreaWidgetContents);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+
+        horizontalLayout_2->addLayout(horizontalLayout);
+
         scrollArea->setWidget(scrollAreaWidgetContents);
         ToolsGroupBox = new QGroupBox(centralwidget);
         ToolsGroupBox->setObjectName(QString::fromUtf8("ToolsGroupBox"));
@@ -131,10 +140,16 @@ public:
         drawGrid->setSizeConstraint(QLayout::SetDefaultConstraint);
         drawGrid->setHorizontalSpacing(7);
         drawGrid->setContentsMargins(0, 0, 0, 0);
+        nextButton = new QPushButton(centralwidget);
+        nextButton->setObjectName(QString::fromUtf8("nextButton"));
+        nextButton->setGeometry(QRect(770, 500, 31, 24));
+        previousButton = new QPushButton(centralwidget);
+        previousButton->setObjectName(QString::fromUtf8("previousButton"));
+        previousButton->setGeometry(QRect(740, 500, 31, 24));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainWindow->setMenuBar(menubar);
@@ -169,6 +184,8 @@ public:
         playPushButton->setText(QCoreApplication::translate("MainWindow", "Play Actual Size", nullptr));
         addFrame->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
         deleteFrame->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
+        nextButton->setText(QCoreApplication::translate("MainWindow", ">", nullptr));
+        previousButton->setText(QCoreApplication::translate("MainWindow", "<", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
     } // retranslateUi
 

@@ -29,14 +29,21 @@ private slots:
 
     void on_addFrame_clicked();
 
+    void on_nextButton_clicked();
+
+    void on_previousButton_clicked();
+
 public slots:
     void assignDimensions(int size);
     void UpdateLayout(std::vector<QImage> frames);
+    void SetFrame(QImage img);
 
 signals:
     void SetColor(QColor _color);
     void AddFrame(QImage img);
     void UpdateFrame(QImage img);
+    void NextFrameSignal();
+    void PreviousFrameSignal();
 
 private:
     void ClearLayout();

@@ -11,9 +11,13 @@ public:
     DrawScreen(int pixels, QWidget *parent = nullptr);
     void clear();
     QImage image;
+    void SetSize(int pixels);
 
 public slots:
     void changeColor(QColor);
+
+//signals:
+//    void UpdateCorrespondingFrameSignal();
 
 private:
     QColor color;

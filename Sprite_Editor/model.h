@@ -11,7 +11,7 @@ class Model: public QObject{
 
 private:
     std::vector<QImage> frames;
-    int currFrameIndex = 0;
+    int currFrameIndex;
 
 public:
     Model(QObject *parent = nullptr);
@@ -20,9 +20,13 @@ public:
 public slots:
     void AddFrame(QImage img);
     void UpdateFrame(QImage img);
+    //void UpdateCorrespondingFrameSlot();
+    void NextFrameSlot();
+    void PreviousFrameSlot();
 
 signals:
     void UpdateLayout(std::vector<QImage> frames);
+    void SetImageSignal(QImage img);
 
 };
 

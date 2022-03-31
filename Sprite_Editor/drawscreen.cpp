@@ -16,6 +16,14 @@ DrawScreen::DrawScreen(int pixels, QWidget *parent)
     pixelSize = size / pixels;
 }
 
+//void DrawScreen::SetSize(int pixels){
+//    int size = std::ceil(300 / pixels) * pixels;
+
+//    QImage i(QSize(size, size), QImage::Format_RGB32);
+//    image = i;
+//    image.fill(qRgba(200, 200, 200, 0));
+//}
+
 void DrawScreen::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
@@ -37,6 +45,8 @@ void DrawScreen::mouseReleaseEvent(QMouseEvent *event)
         drawRect(event->position().x(), event->position().y());
         scribbling = false;
     }
+//    emit UpdateCorrespondingFrameSignal();
+//    qDebug("working");
 }
 
 void DrawScreen::paintEvent(QPaintEvent *event)
@@ -64,3 +74,4 @@ void DrawScreen::clear() {
 void DrawScreen::changeColor(QColor col){
     color = col;
 }
+

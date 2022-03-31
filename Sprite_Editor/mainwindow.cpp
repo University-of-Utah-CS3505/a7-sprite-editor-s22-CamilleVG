@@ -7,15 +7,17 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
-
+MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), screen(nullptr) {
     ui->setupUi(this);
 
     connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::assignDimensions);
     connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
     connect(this, &MainWindow::UpdateFrame, &model, &Model::UpdateFrame);
     connect(&model, &Model::UpdateLayout, this, &MainWindow::UpdateLayout);
-
+    //connect(screen, &DrawScreen::UpdateCorrespondingFrameSignal, &model, &Model::UpdateCorrespondingFrameSlot);
+    connect(this, &MainWindow::NextFrameSignal, &model, &Model::NextFrameSlot);
+    connect(this, &MainWindow::PreviousFrameSignal, &model, &Model::PreviousFrameSlot);
+    connect(&model, &Model::SetImageSignal, this, &MainWindow::SetFrame);
 }
 
 MainWindow::~MainWindow(){
@@ -45,8 +47,14 @@ void MainWindow::on_addFrame_clicked()
     emit(AddFrame(screen->image));
 }
 
+void MainWindow::SetFrame(QImage img){
+    screen->clear();
+    screen->image = img;
+}
+
 void MainWindow::UpdateLayout(std::vector<QImage> frames) {
     ClearLayout();
+    qDebug("updating");
     for (QImage img : frames) {
         QLabel *label = new QLabel("Text", this);
         label->setFixedSize(100, 100);
@@ -93,5 +101,18 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionLoad_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "", "", "Sprite Sheet Project (*.ssp)");
+}
+
+void MainWindow::on_nextButton_clicked()
+{
+    emit UpdateFrame(screen->image);
+    emit NextFrameSignal();
+}
+
+
+void MainWindow::on_previousButton_clicked()
+{
+    emit UpdateFrame(screen->image);
+    emit PreviousFrameSignal();
 }
 
