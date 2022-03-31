@@ -93,5 +93,17 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionLoad_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "", "", "Sprite Sheet Project (*.ssp)");
+    if (!filename.isEmpty()) {
+        QJsonDocument loadDoc;
+        QJsonObject loadObject;
+        QByteArray jsonData;
+        QFile loadFile(filename);
+        if (loadFile.open(QIODevice::ReadOnly)) {
+            jsonData = loadFile.readAll();
+            loadDoc = loadDoc.fromJson(jsonData);
+            loadObject = loadDoc.object();
+            otherwindow.imageSize = loadObject["height"].toInt();
+        }
+    }
 }
 
