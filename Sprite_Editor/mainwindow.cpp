@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QGraphicsPixmapItem>
 
 MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), screen(nullptr) {
     ui->setupUi(this);

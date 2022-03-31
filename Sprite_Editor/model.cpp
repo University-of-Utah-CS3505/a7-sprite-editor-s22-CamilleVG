@@ -35,8 +35,3 @@ void Model::PreviousFrameSlot(){
     emit SetImageSignal(frames.at(currFrameIndex));
     emit UpdateLayout(frames);
 }
-
-//void Model::UpdateCorrespondingFrameSlot(){
-//    qDebug("updating");
-//    emit(UpdateLayout(frames));
-//}
