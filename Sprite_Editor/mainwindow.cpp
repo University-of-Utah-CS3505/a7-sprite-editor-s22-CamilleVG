@@ -60,6 +60,10 @@ void MainWindow::UpdateLayout(std::vector<QImage> frames) {
         label->setFixedSize(100, 100);
         label->setPixmap(QPixmap::fromImage(img));
         label->setScaledContents(true);
+        label->setStyleSheet("border:3px solid black");
+        if(img == screen->image) {
+            label->setStyleSheet("border:3px solid red");
+        }
 
         ui->horizontalLayout->addWidget(label);
     }

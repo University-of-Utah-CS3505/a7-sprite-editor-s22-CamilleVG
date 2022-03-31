@@ -20,9 +20,12 @@ public slots:
 //    void UpdateCorrespondingFrameSignal();
 
 private:
+    QImage bgImg;
     QColor color;
     int pixelSize;
+    int pixels;
     bool scribbling = false;
+    void drawTransparentBackground();
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
