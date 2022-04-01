@@ -11,7 +11,9 @@ public:
     DrawScreen(int pixels, QWidget *parent = nullptr);
     void clear();
     QImage image;
+    QImage bgImg;
     void SetSize(int pixels);
+    bool erase;
 
 public slots:
     void changeColor(QColor);
@@ -20,7 +22,6 @@ public slots:
 //    void UpdateCorrespondingFrameSignal();
 
 private:
-    QImage bgImg;
     QColor color;
     int pixelSize;
     int pixels;

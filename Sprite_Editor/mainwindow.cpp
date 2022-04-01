@@ -24,6 +24,8 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(this, &MainWindow::PlayPlayBackLabel, &model, &Model::GetFrames);
     connect(this, &MainWindow::UpdateFPS, &model, &Model::UpdateFPS);
 
+    connect(this, &MainWindow::RemoveFrameSignal, &model, &Model::RemoveFrameSlot);
+
 
     connect(&model, &Model::SendFrames, this, &MainWindow::UpdatePlayBack);
 
@@ -152,5 +154,30 @@ void MainWindow::UpdatePlayBack(QImage frame) {
 void MainWindow::on_playSpeedHorizontalSlider_valueChanged(int value)
 {
     UpdateFPS(value);
+}
+
+
+void MainWindow::on_eraserRadioButton_clicked()
+{
+    screen->erase = true;
+}
+
+
+void MainWindow::on_pencilRadioButton_clicked()
+{
+    screen->erase = false;
+}
+
+
+void MainWindow::on_brushRadioButton_clicked()
+{
+    screen->erase = false;
+}
+
+
+void MainWindow::on_deleteFrame_clicked()
+{
+    emit RemoveFrameSignal();
+    emit PreviousFrameSignal();
 }
 

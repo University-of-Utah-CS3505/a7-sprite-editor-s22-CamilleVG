@@ -56,3 +56,15 @@ void Model::UpdateFPS(int _fps) {
     qDebug() << _fps;
     fps = _fps;
 }
+
+void Model::RemoveFrameSlot(){
+    frames.erase(frames.begin()+currFrameIndex);
+    if(currFrameIndex != 0){
+        currFrameIndex--;
+    }
+    else{
+        currFrameIndex++;
+    }
+    emit UpdateLayout(frames);
+    emit SetImageSignal(frames.at(currFrameIndex));
+}

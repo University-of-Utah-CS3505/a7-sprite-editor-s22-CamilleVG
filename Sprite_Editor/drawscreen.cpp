@@ -83,6 +83,14 @@ void DrawScreen::drawRect(int x, int y)
 
     painter.fillRect(rect, QBrush(color));
 
+    if(erase){
+        if ((rect.y() % 2 == 0 && rect.x() % 2 == 1) || (rect.y() % 2 == 1 && rect.x() % 2 == 0)) {
+            painter.fillRect(rect, QBrush(QColor("Gray")));
+        } else {
+            painter.fillRect(rect, QBrush(QColor("DarkGray")));
+        }
+    }
+
     update();
 }
 

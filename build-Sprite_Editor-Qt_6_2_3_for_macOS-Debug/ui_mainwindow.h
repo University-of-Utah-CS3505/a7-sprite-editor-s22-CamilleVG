@@ -124,6 +124,7 @@ public:
         playSpeedHorizontalSlider = new QSlider(centralwidget);
         playSpeedHorizontalSlider->setObjectName(QString::fromUtf8("playSpeedHorizontalSlider"));
         playSpeedHorizontalSlider->setGeometry(QRect(10, 460, 160, 25));
+        playSpeedHorizontalSlider->setMinimum(1);
         playSpeedHorizontalSlider->setMaximum(10);
         playSpeedHorizontalSlider->setOrientation(Qt::Horizontal);
         addFrame = new QPushButton(centralwidget);
@@ -149,14 +150,16 @@ public:
         fpsSpinBox = new QSpinBox(centralwidget);
         fpsSpinBox->setObjectName(QString::fromUtf8("fpsSpinBox"));
         fpsSpinBox->setGeometry(QRect(60, 480, 44, 25));
+        fpsSpinBox->setMinimum(1);
         fpsSpinBox->setMaximum(10);
         playBackLabel = new QLabel(centralwidget);
         playBackLabel->setObjectName(QString::fromUtf8("playBackLabel"));
-        playBackLabel->setGeometry(QRect(10, 310, 161, 121));
+        playBackLabel->setGeometry(QRect(40, 320, 100, 100));
+        playBackLabel->setMaximumSize(QSize(100, 100));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 24));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainWindow->setMenuBar(menubar);

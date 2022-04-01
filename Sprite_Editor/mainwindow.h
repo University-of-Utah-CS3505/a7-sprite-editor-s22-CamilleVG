@@ -35,6 +35,14 @@ private slots:
 
     void on_playSpeedHorizontalSlider_valueChanged(int value);
 
+    void on_eraserRadioButton_clicked();
+
+    void on_pencilRadioButton_clicked();
+
+    void on_brushRadioButton_clicked();
+
+    void on_deleteFrame_clicked();
+
 public slots:
     void assignDimensions(int size);
     void UpdateLayout(std::vector<QImage> frames);
@@ -49,6 +57,7 @@ signals:
     void PreviousFrameSignal();
     void PlayPlayBackLabel();
     void UpdateFPS(int fps);
+    void RemoveFrameSignal();
 
 private:
     void ClearLayout();

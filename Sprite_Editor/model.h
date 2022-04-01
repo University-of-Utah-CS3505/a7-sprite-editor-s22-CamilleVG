@@ -29,6 +29,7 @@ public slots:
     void GetFrames();
     void UpdateFPS(int _fps);
     void SendPlayerFrame();
+    void RemoveFrameSlot();
 
 signals:
     void UpdateLayout(std::vector<QImage> frames);
