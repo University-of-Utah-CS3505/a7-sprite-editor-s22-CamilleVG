@@ -35,14 +35,6 @@ void DrawScreen::drawTransparentBackground() {
     }
 }
 
-//void DrawScreen::SetSize(int pixels){
-//    int size = std::ceil(300 / pixels) * pixels;
-
-//    QImage i(QSize(size, size), QImage::Format_RGB32);
-//    image = i;
-//    image.fill(qRgba(200, 200, 200, 0));
-//}
-
 void DrawScreen::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
@@ -64,8 +56,7 @@ void DrawScreen::mouseReleaseEvent(QMouseEvent *event)
         drawRect(event->position().x(), event->position().y());
         scribbling = false;
     }
-//    emit UpdateCorrespondingFrameSignal();
-//    qDebug("working");
+    emit UpdateDrawingFrame(image);
 }
 
 void DrawScreen::paintEvent(QPaintEvent *event)
@@ -81,14 +72,11 @@ void DrawScreen::drawRect(int x, int y)
     QPainter painter(&image);
     QRect rect(std::floor(x / pixelSize) * pixelSize, std::floor(y / pixelSize) * pixelSize, pixelSize, pixelSize);
 
-    painter.fillRect(rect, QBrush(color));
-
-    if(erase){
-        if ((rect.y() % 2 == 0 && rect.x() % 2 == 1) || (rect.y() % 2 == 1 && rect.x() % 2 == 0)) {
-            painter.fillRect(rect, QBrush(QColor("Gray")));
-        } else {
-            painter.fillRect(rect, QBrush(QColor("DarkGray")));
-        }
+    if (erase) {
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.fillRect(rect, QBrush(Qt::transparent));
+    } else {
+        painter.fillRect(rect, QBrush(color));
     }
 
     update();

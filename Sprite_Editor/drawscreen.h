@@ -13,13 +13,13 @@ public:
     QImage image;
     QImage bgImg;
     void SetSize(int pixels);
-    bool erase;
+    bool erase = false;
 
 public slots:
     void changeColor(QColor);
 
-//signals:
-//    void UpdateCorrespondingFrameSignal();
+signals:
+    void UpdateDrawingFrame(QImage img);
 
 private:
     QColor color;
