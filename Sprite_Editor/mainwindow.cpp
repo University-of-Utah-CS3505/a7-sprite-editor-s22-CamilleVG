@@ -159,19 +159,19 @@ void MainWindow::on_playSpeedHorizontalSlider_valueChanged(int value)
 
 void MainWindow::on_eraserRadioButton_clicked()
 {
-    screen->erase = true;
+    screen->brushType = "eraser";
 }
 
 
 void MainWindow::on_pencilRadioButton_clicked()
 {
-    screen->erase = false;
+    screen->brushType = "pencil";
 }
 
 
 void MainWindow::on_brushRadioButton_clicked()
 {
-    screen->erase = false;
+    screen->brushType = "brush";
 }
 
 

@@ -13,7 +13,7 @@ public:
     QImage image;
     QImage bgImg;
     void SetSize(int pixels);
-    bool erase = false;
+    std::string brushType = "pencil";
 
 public slots:
     void changeColor(QColor);

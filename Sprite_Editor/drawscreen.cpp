@@ -70,12 +70,16 @@ void DrawScreen::paintEvent(QPaintEvent *event)
 void DrawScreen::drawRect(int x, int y)
 {
     QPainter painter(&image);
-    QRect rect(std::floor(x / pixelSize) * pixelSize, std::floor(y / pixelSize) * pixelSize, pixelSize, pixelSize);
 
-    if (erase) {
+    if (brushType == "eraser") {
+        QRect rect(std::floor(x / pixelSize) * pixelSize, std::floor(y / pixelSize) * pixelSize, pixelSize, pixelSize);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
         painter.fillRect(rect, QBrush(Qt::transparent));
+    } else if (brushType == "pencil"){
+        QRect rect(std::floor(x / pixelSize) * pixelSize, std::floor(y / pixelSize) * pixelSize, pixelSize, pixelSize);
+        painter.fillRect(rect, QBrush(color));
     } else {
+        QRect rect((std::floor(x / pixelSize) - 1) * pixelSize, (std::floor(y / pixelSize) - 1) * pixelSize, pixelSize * 3, pixelSize * 3);
         painter.fillRect(rect, QBrush(color));
     }
 
