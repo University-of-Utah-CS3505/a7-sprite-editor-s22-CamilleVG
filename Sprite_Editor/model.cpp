@@ -37,6 +37,9 @@ void Model::PreviousFrameSlot(){
 }
 
 void Model::GetFrames(){
+    // Updated this method as it didnt work with deleteing frames.
+    // If the for loop was on a frame that was deleted the program would crash.
+    // This way it will never crash as it will always be in a valid state.
     if (playerIndex >= frames.size()) {
         playerIndex = 0;
     }
@@ -57,7 +60,9 @@ void Model::RemoveFrameSlot(){
         frames.at(currFrameIndex).fill(Qt::transparent);
     } else {
         frames.erase(frames.begin()+currFrameIndex);
-        currFrameIndex--;
+        if (currFrameIndex != 0){
+            currFrameIndex--;
+        }
     }
 
     emit SetImageSignal(frames.at(currFrameIndex));
