@@ -8,7 +8,7 @@
 #include <QJsonObject>
 #include <QGraphicsPixmapItem>
 
-MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), screen(nullptr) {
+MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     ui->playBackLabel->setStyleSheet("QLabel {""border-style: solid;" "border-width: 1px;" "border-color: black; ""}");
 
@@ -16,7 +16,6 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
     connect(this, &MainWindow::UpdateFrame, &model, &Model::UpdateFrame);
     connect(&model, &Model::UpdateLayout, this, &MainWindow::UpdateLayout);
-    //connect(screen, &DrawScreen::UpdateCorrespondingFrameSignal, &model, &Model::UpdateCorrespondingFrameSlot);
     connect(this, &MainWindow::NextFrameSignal, &model, &Model::NextFrameSlot);
     connect(this, &MainWindow::PreviousFrameSignal, &model, &Model::PreviousFrameSlot);
     connect(&model, &Model::SetImageSignal, this, &MainWindow::SetFrame);
@@ -42,6 +41,7 @@ void MainWindow::assignDimensions(int size) {
     emit(AddFrame(screen->image));
     emit PlayPlayBackLabel();
     connect(this, &MainWindow::SetColor, screen, &DrawScreen::changeColor);
+    connect(screen, &DrawScreen::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
 }
 
 void MainWindow::on_colorPickerPushButton_clicked() {
@@ -181,3 +181,6 @@ void MainWindow::on_deleteFrame_clicked()
     emit PreviousFrameSignal();
 }
 
+void MainWindow::UpdateDrawingFrame(QImage img) {
+    emit UpdateFrame(img);
+}

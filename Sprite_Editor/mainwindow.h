@@ -42,6 +42,7 @@ private slots:
     void on_brushRadioButton_clicked();
 
     void on_deleteFrame_clicked();
+    void UpdateDrawingFrame(QImage img);
 
 public slots:
     void assignDimensions(int size);

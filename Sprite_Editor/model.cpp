@@ -17,6 +17,7 @@ void Model::AddFrame(QImage img) {
 
 void Model::UpdateFrame(QImage img) {
     frames.at(currFrameIndex) = img;
+    emit UpdateLayout(frames);
 }
 
 void Model::NextFrameSlot(){

@@ -23,7 +23,6 @@ public:
 public slots:
     void AddFrame(QImage img);
     void UpdateFrame(QImage img);
-    //void UpdateCorrespondingFrameSlot();
     void NextFrameSlot();
     void PreviousFrameSlot();
     void GetFrames();
