@@ -27,7 +27,6 @@ public slots:
     void PreviousFrameSlot();
     void GetFrames();
     void UpdateFPS(int _fps);
-    void SendPlayerFrame();
     void RemoveFrameSlot();
 
 signals:

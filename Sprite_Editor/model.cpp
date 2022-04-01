@@ -37,19 +37,13 @@ void Model::PreviousFrameSlot(){
 }
 
 void Model::GetFrames(){
-    int time = 0;
-    playerIndex = 0;
-    for (int i = 0; i < frames.size(); i++) {
-             time += 1000/fps;
-             QTimer::singleShot(time, this, &Model::SendPlayerFrame);
-             if (i == frames.size()-1) {
-                 QTimer::singleShot(time, this, &Model::GetFrames);
-             }
+    if (playerIndex >= frames.size()) {
+        playerIndex = 0;
     }
-}
 
-void Model::SendPlayerFrame(){
+    QTimer::singleShot(1000/fps, this, &Model::GetFrames);
     emit SendFrames(frames[playerIndex]);
+
     playerIndex++;
 }
 
@@ -59,13 +53,13 @@ void Model::UpdateFPS(int _fps) {
 }
 
 void Model::RemoveFrameSlot(){
-    frames.erase(frames.begin()+currFrameIndex);
-    if(currFrameIndex != 0){
+    if (currFrameIndex == 0 && frames.size() == 1) {
+        frames.at(currFrameIndex).fill(Qt::transparent);
+    } else {
+        frames.erase(frames.begin()+currFrameIndex);
         currFrameIndex--;
     }
-    else{
-        currFrameIndex++;
-    }
-    emit UpdateLayout(frames, currFrameIndex);
+
     emit SetImageSignal(frames.at(currFrameIndex));
+    emit UpdateLayout(frames, currFrameIndex);
 }

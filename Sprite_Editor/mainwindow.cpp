@@ -179,7 +179,6 @@ void MainWindow::on_brushRadioButton_clicked()
 void MainWindow::on_deleteFrame_clicked()
 {
     emit RemoveFrameSignal();
-    emit PreviousFrameSignal();
 }
 
 void MainWindow::UpdateDrawingFrame(QImage img) {
