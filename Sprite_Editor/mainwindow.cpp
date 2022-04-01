@@ -10,6 +10,7 @@
 
 MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), screen(nullptr) {
     ui->setupUi(this);
+    ui->playBackLabel->setStyleSheet("QLabel {""border-style: solid;" "border-width: 1px;" "border-color: black; ""}");
 
     connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::assignDimensions);
     connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
@@ -19,7 +20,11 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(this, &MainWindow::NextFrameSignal, &model, &Model::NextFrameSlot);
     connect(this, &MainWindow::PreviousFrameSignal, &model, &Model::PreviousFrameSlot);
     connect(&model, &Model::SetImageSignal, this, &MainWindow::SetFrame);
+
     connect(this, &MainWindow::PlayPlayBackLabel, &model, &Model::GetFrames);
+    connect(this, &MainWindow::UpdateFPS, &model, &Model::UpdateFPS);
+
+
     connect(&model, &Model::SendFrames, this, &MainWindow::UpdatePlayBack);
 
 
@@ -141,5 +146,11 @@ void MainWindow::UpdatePlayBack(QImage frame) {
         ui->playBackLabel->setFixedSize(100, 100);
         ui->playBackLabel->setPixmap(QPixmap::fromImage(frame));
         ui->playBackLabel->setScaledContents(true);
+}
+
+
+void MainWindow::on_playSpeedHorizontalSlider_valueChanged(int value)
+{
+    UpdateFPS(value);
 }
 

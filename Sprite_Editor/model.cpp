@@ -39,14 +39,20 @@ void Model::GetFrames(){
     int time = 0;
     playerIndex = 0;
     for (int i = 0; i < frames.size(); i++) {
-             time +=100;
+             time += 1000/fps;
              QTimer::singleShot(time, this, &Model::SendPlayerFrame);
              if (i == frames.size()-1) {
                  QTimer::singleShot(time, this, &Model::GetFrames);
              }
     }
 }
+
 void Model::SendPlayerFrame(){
     emit SendFrames(frames[playerIndex]);
     playerIndex++;
+}
+
+void Model::UpdateFPS(int _fps) {
+    qDebug() << _fps;
+    fps = _fps;
 }

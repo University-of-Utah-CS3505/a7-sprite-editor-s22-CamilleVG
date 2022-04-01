@@ -14,6 +14,7 @@ private:
     std::vector<QImage> frames;
     int currFrameIndex;
     int playerIndex;
+    int fps = 1;
 
 public:
     Model(QObject *parent = nullptr);
@@ -26,6 +27,7 @@ public slots:
     void NextFrameSlot();
     void PreviousFrameSlot();
     void GetFrames();
+    void UpdateFPS(int _fps);
     void SendPlayerFrame();
 
 signals:
