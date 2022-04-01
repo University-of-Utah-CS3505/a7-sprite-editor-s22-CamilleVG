@@ -64,16 +64,17 @@ void MainWindow::SetFrame(QImage img){
     screen->image = img;
 }
 
-void MainWindow::UpdateLayout(std::vector<QImage> frames) {
+void MainWindow::UpdateLayout(std::vector<QImage> frames, int currentFrame) {
     ClearLayout();
     qDebug("updating");
-    for (QImage img : frames) {
+    for (int i = 0; i < frames.size(); i++) {
+        QImage img = frames[i];
         QLabel *label = new QLabel("Text", this);
         label->setFixedSize(100, 100);
         label->setPixmap(QPixmap::fromImage(img));
         label->setScaledContents(true);
         label->setStyleSheet("border:3px solid black");
-        if(img == screen->image) {
+        if(i == currentFrame) {
             label->setStyleSheet("border:3px solid red");
         }
 

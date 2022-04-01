@@ -8,16 +8,16 @@ Model::Model(QObject *parent):
 
 void Model::AddFrame(QImage img) {
     frames.push_back(img);
-    emit UpdateLayout(frames);
     // Don't want to increment frame index when adding the very first frame
     if(frames.size() != 1){
         currFrameIndex++;
     }
+    emit UpdateLayout(frames, currFrameIndex);
 }
 
 void Model::UpdateFrame(QImage img) {
     frames.at(currFrameIndex) = img;
-    emit UpdateLayout(frames);
+    emit UpdateLayout(frames, currFrameIndex);
 }
 
 void Model::NextFrameSlot(){
@@ -25,7 +25,7 @@ void Model::NextFrameSlot(){
         currFrameIndex++;
     }
     emit SetImageSignal(frames.at(currFrameIndex));
-    emit UpdateLayout(frames);
+    emit UpdateLayout(frames, currFrameIndex);
 }
 
 void Model::PreviousFrameSlot(){
@@ -33,7 +33,7 @@ void Model::PreviousFrameSlot(){
         currFrameIndex--;
     }
     emit SetImageSignal(frames.at(currFrameIndex));
-    emit UpdateLayout(frames);
+    emit UpdateLayout(frames, currFrameIndex);
 }
 
 void Model::GetFrames(){
@@ -66,6 +66,6 @@ void Model::RemoveFrameSlot(){
     else{
         currFrameIndex++;
     }
-    emit UpdateLayout(frames);
+    emit UpdateLayout(frames, currFrameIndex);
     emit SetImageSignal(frames.at(currFrameIndex));
 }

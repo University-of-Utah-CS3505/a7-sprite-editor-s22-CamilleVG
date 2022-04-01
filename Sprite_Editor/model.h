@@ -31,7 +31,7 @@ public slots:
     void RemoveFrameSlot();
 
 signals:
-    void UpdateLayout(std::vector<QImage> frames);
+    void UpdateLayout(std::vector<QImage> frames, int currentFrame);
     void SetImageSignal(QImage img);
     void SendFrames(QImage img);
 };

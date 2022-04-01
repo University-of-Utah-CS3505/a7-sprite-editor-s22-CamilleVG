@@ -46,7 +46,7 @@ private slots:
 
 public slots:
     void assignDimensions(int size);
-    void UpdateLayout(std::vector<QImage> frames);
+    void UpdateLayout(std::vector<QImage> frames, int currentFrame);
     void SetFrame(QImage img);
     void UpdatePlayBack(QImage frame);
 
