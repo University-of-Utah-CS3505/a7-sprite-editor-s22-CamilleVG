@@ -59,6 +59,7 @@ signals:
     void PlayPlayBackLabel();
     void UpdateFPS(int fps);
     void RemoveFrameSignal();
+    void SaveFile(QString filename);
 
 private:
     void ClearLayout();

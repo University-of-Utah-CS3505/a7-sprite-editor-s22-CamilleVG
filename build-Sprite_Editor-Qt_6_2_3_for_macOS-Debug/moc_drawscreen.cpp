@@ -22,19 +22,22 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_DrawScreen_t {
-    const uint offsetsAndSize[6];
-    char stringdata0[24];
+    const uint offsetsAndSize[10];
+    char stringdata0[47];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_DrawScreen_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_DrawScreen_t qt_meta_stringdata_DrawScreen = {
     {
 QT_MOC_LITERAL(0, 10), // "DrawScreen"
-QT_MOC_LITERAL(11, 11), // "changeColor"
-QT_MOC_LITERAL(23, 0) // ""
+QT_MOC_LITERAL(11, 18), // "UpdateDrawingFrame"
+QT_MOC_LITERAL(30, 0), // ""
+QT_MOC_LITERAL(31, 3), // "img"
+QT_MOC_LITERAL(35, 11) // "changeColor"
 
     },
-    "DrawScreen\0changeColor\0"
+    "DrawScreen\0UpdateDrawingFrame\0\0img\0"
+    "changeColor"
 };
 #undef QT_MOC_LITERAL
 
@@ -44,15 +47,21 @@ static const uint qt_meta_data_DrawScreen[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    1,   26,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   20,    2, 0x0a,    1 /* Public */,
+       4,    1,   29,    2, 0x0a,    3 /* Public */,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::QImage,    3,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QColor,    2,
@@ -66,8 +75,18 @@ void DrawScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<DrawScreen *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->changeColor((*reinterpret_cast< QColor(*)>(_a[1]))); break;
+        case 0: _t->UpdateDrawingFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 1: _t->changeColor((*reinterpret_cast< QColor(*)>(_a[1]))); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (DrawScreen::*)(QImage );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DrawScreen::UpdateDrawingFrame)) {
+                *result = 0;
+                return;
+            }
         }
     }
 }
@@ -79,7 +98,7 @@ const QMetaObject DrawScreen::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_DrawScreen_t
-, QtPrivate::TypeAndForceComplete<DrawScreen, std::true_type>
+, QtPrivate::TypeAndForceComplete<DrawScreen, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>
 
 
@@ -107,15 +126,22 @@ int DrawScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
+}
+
+// SIGNAL 0
+void DrawScreen::UpdateDrawingFrame(QImage _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

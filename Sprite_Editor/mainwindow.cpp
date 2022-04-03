@@ -28,6 +28,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
 
     connect(&model, &Model::SendFrames, this, &MainWindow::UpdatePlayBack);
 
+    connect(this, &MainWindow::SaveFile, &model, &Model::SaveFile);
 
 }
 
@@ -98,20 +99,7 @@ void MainWindow::ClearLayout() {
 void MainWindow::on_actionSave_triggered()
 {
     QString filename = QFileDialog::getSaveFileName(this, "", "", "Sprite Sheet Project (*.ssp)");
-    if (!filename.isEmpty()) {
-        QJsonDocument saveDoc;
-        QJsonObject saveObject;
-        saveObject["height"] = otherwindow.imageSize;
-        saveObject["width"] = otherwindow.imageSize;
-        saveObject["numberOfFrames"] = 1;
-        saveDoc.setObject(saveObject);
-        QByteArray jsonData = saveDoc.toJson();
-        QFile output(filename);
-        if (output.open(QIODevice::WriteOnly)) {
-            output.write(jsonData);
-            output.close();
-        }
-    }
+    emit SaveFile(filename);
 }
 
 

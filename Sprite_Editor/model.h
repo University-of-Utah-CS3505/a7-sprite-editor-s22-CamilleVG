@@ -6,6 +6,11 @@
 #include <QObject>
 #include <QDebug>
 #include <QTimer>
+#include <QFileDialog>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <string>
 
 class Model: public QObject{
     Q_OBJECT
@@ -28,6 +33,7 @@ public slots:
     void GetFrames();
     void UpdateFPS(int _fps);
     void RemoveFrameSlot();
+    void SaveFile(QString filename);
 
 signals:
     void UpdateLayout(std::vector<QImage> frames, int currentFrame);

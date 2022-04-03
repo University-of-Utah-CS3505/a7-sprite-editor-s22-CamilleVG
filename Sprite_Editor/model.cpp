@@ -55,7 +55,7 @@ void Model::UpdateFPS(int _fps) {
     fps = _fps;
 }
 
-void Model::RemoveFrameSlot(){
+void Model::RemoveFrameSlot() {
     if (currFrameIndex == 0 && frames.size() == 1) {
         frames.at(currFrameIndex).fill(Qt::transparent);
     } else {
@@ -67,4 +67,43 @@ void Model::RemoveFrameSlot(){
 
     emit SetImageSignal(frames.at(currFrameIndex));
     emit UpdateLayout(frames, currFrameIndex);
+}
+
+void Model::SaveFile(QString filename) {
+    if (!filename.isEmpty()) {
+        QJsonDocument saveDoc;
+        QJsonObject saveObject;
+        saveObject["height"] = 2;
+        saveObject["width"] = 2;
+        int numFrames = frames.size();
+        saveObject["numberOfFrames"] = numFrames;
+
+        QJsonObject saveFrames;
+        for (int frameIndex = 0; frameIndex < numFrames; frameIndex++) {
+            QJsonArray frame;
+            for (int rowIndex = 0; rowIndex < frames[frameIndex].height(); rowIndex++) {
+                QJsonArray row;
+                for (int pixelIndex = 0; pixelIndex < frames[frameIndex].width(); pixelIndex++) {
+                    QJsonArray pixelArray;
+                    QColor color = frames[frameIndex].pixel(pixelIndex, rowIndex);
+                    pixelArray.push_back(color.red());
+                    pixelArray.push_back(color.green());
+                    pixelArray.push_back(color.blue());
+                    pixelArray.push_back(color.alpha());
+                    row.push_back(pixelArray);
+                }
+                frame.push_back(row);
+            }
+            std::string frameName = "frame" + std::to_string(frameIndex);
+            saveFrames.insert(QString::fromStdString(frameName), frame);
+        }
+        saveObject["frame"] = saveFrames;
+        saveDoc.setObject(saveObject);
+        QByteArray jsonData = saveDoc.toJson();
+        QFile output(filename);
+        if (output.open(QIODevice::WriteOnly)) {
+            output.write(jsonData);
+            output.close();
+        }
+    }
 }
