@@ -27,6 +27,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
 
 
     connect(&model, &Model::SendFrames, this, &MainWindow::UpdatePlayBack);
+    connect(&model, &Model::SendFrames, this, &MainWindow::UpdateRealPlayBack);
 
     connect(this, &MainWindow::SaveFile, &model, &Model::SaveFile);
     connect(this, &MainWindow::OpenFile, &model, &Model::OpenFile);
@@ -44,12 +45,17 @@ void MainWindow::ReassignDimensions() {
 }
 void MainWindow::AssignDimensions() {
     screen = new DrawScreen(otherwindow.imageSize, this);
+    realsize.resize(otherwindow.imageSize, otherwindow.imageSize);
     ui->drawGrid->addWidget(screen);
     emit(AddFrame(screen->image));
     emit PlayPlayBackLabel();
     connect(this, &MainWindow::SetColor, screen, &DrawScreen::changeColor);
     connect(screen, &DrawScreen::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
+<<<<<<< HEAD
     connect(this, &MainWindow::UpdateSize, screen, &DrawScreen::ResetSize);
+=======
+    connect(this, &MainWindow::UpdateRealPlayBackSignal, &realsize, &RealSize::UpdateRealPlayBackSlot);
+>>>>>>> 93583d9a21f77580465db27c69ee401597d7a2d0
 }
 
 void MainWindow::on_colorPickerPushButton_clicked() {
@@ -169,6 +175,15 @@ void MainWindow::UpdateDrawingFrame(QImage img) {
     emit UpdateFrame(img);
 }
 
+void MainWindow::on_playPushButton_clicked()
+{
+    realsize.show();
+}
+
+void MainWindow::UpdateRealPlayBack(QImage frame) {
+    emit UpdateRealPlayBackSignal(frame, otherwindow.imageSize);
+
+}
 void MainWindow::on_duplicateButton_clicked()
 {
     emit(UpdateFrame(screen->image));

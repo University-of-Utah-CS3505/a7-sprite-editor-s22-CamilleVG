@@ -14,6 +14,7 @@ SOURCES += \
     mainwindow.cpp \
     model.cpp \
     qcolordialogtester.cpp \
+    realsize.cpp \
     starterform.cpp
 
 HEADERS += \
@@ -21,10 +22,12 @@ HEADERS += \
     mainwindow.h \
     model.h \
     qcolordialogtester.h \
+    realsize.h \
     starterform.h
 
 FORMS += \
     mainwindow.ui \
+    realsize.ui \
     starterform.ui
 
 # Default rules for deployment.
