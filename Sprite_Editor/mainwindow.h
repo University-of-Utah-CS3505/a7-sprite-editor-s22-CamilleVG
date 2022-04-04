@@ -44,6 +44,8 @@ private slots:
     void on_deleteFrame_clicked();
     void UpdateDrawingFrame(QImage img);
 
+    void on_duplicateButton_clicked();
+
 public slots:
     void assignDimensions(int size);
     void UpdateLayout(std::vector<QImage> frames, int currentFrame);

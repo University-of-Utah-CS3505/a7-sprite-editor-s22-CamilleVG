@@ -163,3 +163,10 @@ void MainWindow::on_deleteFrame_clicked()
 void MainWindow::UpdateDrawingFrame(QImage img) {
     emit UpdateFrame(img);
 }
+
+void MainWindow::on_duplicateButton_clicked()
+{
+    emit(UpdateFrame(screen->image));
+    emit(AddFrame(screen->image));
+}
+
