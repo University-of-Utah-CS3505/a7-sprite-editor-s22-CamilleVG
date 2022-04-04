@@ -7,11 +7,20 @@ Model::Model(QObject *parent):
 }
 
 void Model::AddFrame(QImage img) {
-    frames.push_back(img);
+    if (frames.size() == 0) {
+        frames.push_back(img);
+    }
+    else if (frames.size() == currFrameIndex + 1) {
+        frames.push_back(img);
+    } else {
+        frames.insert(frames.begin() + currFrameIndex + 1, img);
+    }
+
     // Don't want to increment frame index when adding the very first frame
     if(frames.size() != 1){
         currFrameIndex++;
     }
+
     emit UpdateLayout(frames, currFrameIndex);
 }
 
