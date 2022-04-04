@@ -41,6 +41,7 @@ signals:
     void SetImageSignal(QImage img);
     void SendFrames(QImage img);
     void UpdateDrawingFrame(QImage img);
+    void SetDimensions(int size);
 };
 
 #endif // MODEL_H

@@ -119,7 +119,6 @@ void Model::SaveFile(QString filename) {
 
 void Model::OpenFile(QString filename) {
     std::vector<QImage> newFrames;
-    int size;
     QJsonArray loadFrames;
     if (!filename.isEmpty()) {
         QJsonDocument loadDoc;
@@ -130,7 +129,9 @@ void Model::OpenFile(QString filename) {
             jsonData = loadFile.readAll();
             loadDoc = loadDoc.fromJson(jsonData);
             loadObject = loadDoc.object();
-            size = loadObject["height"].toInt();
+            int size = loadObject["height"].toInt();
+            emit SetDimensions(size);
+
             QJsonObject loadFrames = loadObject["frame"].toObject();
             for (int frameIndex = 0; frameIndex < loadFrames.size(); frameIndex++) {
                 QString frameName = "frame" + QString::number(frameIndex);
@@ -144,13 +145,16 @@ void Model::OpenFile(QString filename) {
                         newColor.setGreen(newFrameCols.at(colIndex).toArray().at(1).toInt());
                         newColor.setBlue(newFrameCols.at(colIndex).toArray().at(2).toInt());
                         newColor.setAlpha(newFrameCols.at(colIndex).toArray().at(3).toInt());
-                        newFrame.setPixelColor(colIndex, rowIndex, newColor);
+                        if (newColor != qRgba(200, 200, 200, 0)){
+                            newFrame.setPixelColor(colIndex, rowIndex, newColor);
+                        }
                     }
                 }
                 newFrames.push_back(newFrame);
             }
             this->frames = newFrames;
-            emit UpdateLayout(frames, 0);
+            UpdateFrame(frames.at(0));
+            emit SetImageSignal(frames.at(0));
         }
     }
 

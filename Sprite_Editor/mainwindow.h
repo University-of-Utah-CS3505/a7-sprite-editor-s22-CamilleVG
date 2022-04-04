@@ -45,9 +45,11 @@ private slots:
     void UpdateDrawingFrame(QImage img);
 
     void on_duplicateButton_clicked();
+    void ChangeScreenSize(int size);
 
 public slots:
-    void assignDimensions(int size);
+    void AssignDimensions();
+    void ReassignDimensions();
     void UpdateLayout(std::vector<QImage> frames, int currentFrame);
     void SetFrame(QImage img);
     void UpdatePlayBack(QImage frame);
@@ -63,13 +65,13 @@ signals:
     void RemoveFrameSignal();
     void SaveFile(QString filename);
     void OpenFile(QString filename);
+    void UpdateSize(int size);
 
 private:
     void ClearLayout();
     Ui::MainWindow *ui;
     DrawScreen *screen;
     QColor currColor;
-
 };
 
 #endif // MAINWINDOW_H

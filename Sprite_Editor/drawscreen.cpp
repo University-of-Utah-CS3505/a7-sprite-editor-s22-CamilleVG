@@ -20,6 +20,20 @@ DrawScreen::DrawScreen(int _pixels, QWidget *parent)
     drawTransparentBackground();
 }
 
+void DrawScreen::ResetSize(int newSize) {
+    pixels = newSize;
+    int size = std::ceil(300 / pixels) * pixels;
+
+    QImage i(QSize(size, size), QImage::Format_ARGB32);
+    image = i;
+    image.fill(qRgba(200, 200, 200, 0));
+    pixelSize = size / pixels;
+
+    QImage bg(QSize(size, size), QImage::Format_ARGB32);
+    bgImg = bg;
+    drawTransparentBackground();
+}
+
 void DrawScreen::drawTransparentBackground() {
     for (int row = 0; row < pixels; row += 1) {
         for (int col = 0; col < pixels; col += 1) {

@@ -17,6 +17,7 @@ public:
 
 public slots:
     void changeColor(QColor);
+    void ResetSize(int size);
 
 signals:
     void UpdateDrawingFrame(QImage img);

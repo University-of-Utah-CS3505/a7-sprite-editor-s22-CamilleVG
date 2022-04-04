@@ -12,7 +12,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     ui->setupUi(this);
     ui->playBackLabel->setStyleSheet("QLabel {""border-style: solid;" "border-width: 1px;" "border-color: black; ""}");
 
-    connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::assignDimensions);
+    connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::AssignDimensions);
     connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
     connect(this, &MainWindow::UpdateFrame, &model, &Model::UpdateFrame);
     connect(&model, &Model::UpdateLayout, this, &MainWindow::UpdateLayout);
@@ -31,6 +31,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(this, &MainWindow::SaveFile, &model, &Model::SaveFile);
     connect(this, &MainWindow::OpenFile, &model, &Model::OpenFile);
     connect(&model, &Model::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
+    connect(&model, &Model::SetDimensions, this, &MainWindow::ReassignDimensions);
 
 }
 
@@ -38,13 +39,17 @@ MainWindow::~MainWindow(){
     delete ui;
 }
 
-void MainWindow::assignDimensions(int size) {
+void MainWindow::ReassignDimensions() {
+    AssignDimensions();
+}
+void MainWindow::AssignDimensions() {
     screen = new DrawScreen(otherwindow.imageSize, this);
     ui->drawGrid->addWidget(screen);
     emit(AddFrame(screen->image));
     emit PlayPlayBackLabel();
     connect(this, &MainWindow::SetColor, screen, &DrawScreen::changeColor);
     connect(screen, &DrawScreen::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
+    connect(this, &MainWindow::UpdateSize, screen, &DrawScreen::ResetSize);
 }
 
 void MainWindow::on_colorPickerPushButton_clicked() {
@@ -77,7 +82,7 @@ void MainWindow::UpdateLayout(std::vector<QImage> frames, int currentFrame) {
         label->setPixmap(QPixmap::fromImage(img));
         label->setScaledContents(true);
         label->setStyleSheet("border:3px solid black");
-        if(i == currentFrame) {
+        if (i == currentFrame) {
             label->setStyleSheet("border:3px solid red");
         }
 
@@ -168,5 +173,10 @@ void MainWindow::on_duplicateButton_clicked()
 {
     emit(UpdateFrame(screen->image));
     emit(AddFrame(screen->image));
+}
+
+void MainWindow::ChangeScreenSize(int size)
+{
+    emit(UpdateSize(size));
 }
 

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Model_t {
-    const uint offsetsAndSize[42];
-    char stringdata0[230];
+    const uint offsetsAndSize[46];
+    char stringdata0[249];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Model_t, stringdata0) + ofs), len 
@@ -39,26 +39,28 @@ QT_MOC_LITERAL(60, 14), // "SetImageSignal"
 QT_MOC_LITERAL(75, 3), // "img"
 QT_MOC_LITERAL(79, 10), // "SendFrames"
 QT_MOC_LITERAL(90, 18), // "UpdateDrawingFrame"
-QT_MOC_LITERAL(109, 8), // "AddFrame"
-QT_MOC_LITERAL(118, 11), // "UpdateFrame"
-QT_MOC_LITERAL(130, 13), // "NextFrameSlot"
-QT_MOC_LITERAL(144, 17), // "PreviousFrameSlot"
-QT_MOC_LITERAL(162, 9), // "GetFrames"
-QT_MOC_LITERAL(172, 9), // "UpdateFPS"
-QT_MOC_LITERAL(182, 4), // "_fps"
-QT_MOC_LITERAL(187, 15), // "RemoveFrameSlot"
-QT_MOC_LITERAL(203, 8), // "SaveFile"
-QT_MOC_LITERAL(212, 8), // "filename"
-QT_MOC_LITERAL(221, 8) // "OpenFile"
+QT_MOC_LITERAL(109, 13), // "SetDimensions"
+QT_MOC_LITERAL(123, 4), // "size"
+QT_MOC_LITERAL(128, 8), // "AddFrame"
+QT_MOC_LITERAL(137, 11), // "UpdateFrame"
+QT_MOC_LITERAL(149, 13), // "NextFrameSlot"
+QT_MOC_LITERAL(163, 17), // "PreviousFrameSlot"
+QT_MOC_LITERAL(181, 9), // "GetFrames"
+QT_MOC_LITERAL(191, 9), // "UpdateFPS"
+QT_MOC_LITERAL(201, 4), // "_fps"
+QT_MOC_LITERAL(206, 15), // "RemoveFrameSlot"
+QT_MOC_LITERAL(222, 8), // "SaveFile"
+QT_MOC_LITERAL(231, 8), // "filename"
+QT_MOC_LITERAL(240, 8) // "OpenFile"
 
     },
     "Model\0UpdateLayout\0\0std::vector<QImage>\0"
     "frames\0currentFrame\0SetImageSignal\0"
     "img\0SendFrames\0UpdateDrawingFrame\0"
-    "AddFrame\0UpdateFrame\0NextFrameSlot\0"
-    "PreviousFrameSlot\0GetFrames\0UpdateFPS\0"
-    "_fps\0RemoveFrameSlot\0SaveFile\0filename\0"
-    "OpenFile"
+    "SetDimensions\0size\0AddFrame\0UpdateFrame\0"
+    "NextFrameSlot\0PreviousFrameSlot\0"
+    "GetFrames\0UpdateFPS\0_fps\0RemoveFrameSlot\0"
+    "SaveFile\0filename\0OpenFile"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,35 +70,37 @@ static const uint qt_meta_data_Model[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       4,       // signalCount
+       5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   92,    2, 0x06,    1 /* Public */,
-       6,    1,   97,    2, 0x06,    4 /* Public */,
-       8,    1,  100,    2, 0x06,    6 /* Public */,
-       9,    1,  103,    2, 0x06,    8 /* Public */,
+       1,    2,   98,    2, 0x06,    1 /* Public */,
+       6,    1,  103,    2, 0x06,    4 /* Public */,
+       8,    1,  106,    2, 0x06,    6 /* Public */,
+       9,    1,  109,    2, 0x06,    8 /* Public */,
+      10,    1,  112,    2, 0x06,   10 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      10,    1,  106,    2, 0x0a,   10 /* Public */,
-      11,    1,  109,    2, 0x0a,   12 /* Public */,
-      12,    0,  112,    2, 0x0a,   14 /* Public */,
-      13,    0,  113,    2, 0x0a,   15 /* Public */,
-      14,    0,  114,    2, 0x0a,   16 /* Public */,
-      15,    1,  115,    2, 0x0a,   17 /* Public */,
-      17,    0,  118,    2, 0x0a,   19 /* Public */,
-      18,    1,  119,    2, 0x0a,   20 /* Public */,
-      20,    1,  122,    2, 0x0a,   22 /* Public */,
+      12,    1,  115,    2, 0x0a,   12 /* Public */,
+      13,    1,  118,    2, 0x0a,   14 /* Public */,
+      14,    0,  121,    2, 0x0a,   16 /* Public */,
+      15,    0,  122,    2, 0x0a,   17 /* Public */,
+      16,    0,  123,    2, 0x0a,   18 /* Public */,
+      17,    1,  124,    2, 0x0a,   19 /* Public */,
+      19,    0,  127,    2, 0x0a,   21 /* Public */,
+      20,    1,  128,    2, 0x0a,   22 /* Public */,
+      22,    1,  131,    2, 0x0a,   24 /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int,    4,    5,
     QMetaType::Void, QMetaType::QImage,    7,
     QMetaType::Void, QMetaType::QImage,    7,
     QMetaType::Void, QMetaType::QImage,    7,
+    QMetaType::Void, QMetaType::Int,   11,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QImage,    7,
@@ -104,10 +108,10 @@ static const uint qt_meta_data_Model[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   16,
+    QMetaType::Void, QMetaType::Int,   18,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   19,
-    QMetaType::Void, QMetaType::QString,   19,
+    QMetaType::Void, QMetaType::QString,   21,
+    QMetaType::Void, QMetaType::QString,   21,
 
        0        // eod
 };
@@ -122,15 +126,16 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 1: _t->SetImageSignal((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         case 2: _t->SendFrames((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         case 3: _t->UpdateDrawingFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 4: _t->AddFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 5: _t->UpdateFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 6: _t->NextFrameSlot(); break;
-        case 7: _t->PreviousFrameSlot(); break;
-        case 8: _t->GetFrames(); break;
-        case 9: _t->UpdateFPS((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 10: _t->RemoveFrameSlot(); break;
-        case 11: _t->SaveFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 12: _t->OpenFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 4: _t->SetDimensions((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: _t->AddFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 6: _t->UpdateFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 7: _t->NextFrameSlot(); break;
+        case 8: _t->PreviousFrameSlot(); break;
+        case 9: _t->GetFrames(); break;
+        case 10: _t->UpdateFPS((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: _t->RemoveFrameSlot(); break;
+        case 12: _t->SaveFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 13: _t->OpenFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -163,6 +168,13 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
                 return;
             }
         }
+        {
+            using _t = void (Model::*)(int );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Model::SetDimensions)) {
+                *result = 4;
+                return;
+            }
+        }
     }
 }
 
@@ -173,7 +185,7 @@ const QMetaObject Model::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Model_t
-, QtPrivate::TypeAndForceComplete<Model, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>
+, QtPrivate::TypeAndForceComplete<Model, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
 
 
@@ -201,13 +213,13 @@ int Model::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }
@@ -238,6 +250,13 @@ void Model::UpdateDrawingFrame(QImage _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
+}
+
+// SIGNAL 4
+void Model::SetDimensions(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 4, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
