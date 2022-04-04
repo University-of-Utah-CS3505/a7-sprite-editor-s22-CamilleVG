@@ -29,6 +29,8 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(&model, &Model::SendFrames, this, &MainWindow::UpdatePlayBack);
 
     connect(this, &MainWindow::SaveFile, &model, &Model::SaveFile);
+    connect(this, &MainWindow::OpenFile, &model, &Model::OpenFile);
+    connect(&model, &Model::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
 
 }
 
@@ -106,18 +108,7 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionLoad_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "", "", "Sprite Sheet Project (*.ssp)");
-    if (!filename.isEmpty()) {
-        QJsonDocument loadDoc;
-        QJsonObject loadObject;
-        QByteArray jsonData;
-        QFile loadFile(filename);
-        if (loadFile.open(QIODevice::ReadOnly)) {
-            jsonData = loadFile.readAll();
-            loadDoc = loadDoc.fromJson(jsonData);
-            loadObject = loadDoc.object();
-            otherwindow.imageSize = loadObject["height"].toInt();
-        }
-    }
+    emit OpenFile(filename);
 }
 
 void MainWindow::on_nextButton_clicked()

@@ -2,7 +2,6 @@
 
 #include <QMouseEvent>
 #include <iostream>
-
 DrawScreen::DrawScreen(int _pixels, QWidget *parent)
     : QWidget{parent},
       pixels(_pixels)

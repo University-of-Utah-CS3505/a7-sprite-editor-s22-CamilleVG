@@ -34,11 +34,13 @@ public slots:
     void UpdateFPS(int _fps);
     void RemoveFrameSlot();
     void SaveFile(QString filename);
+    void OpenFile(QString filename);
 
 signals:
     void UpdateLayout(std::vector<QImage> frames, int currentFrame);
     void SetImageSignal(QImage img);
     void SendFrames(QImage img);
+    void UpdateDrawingFrame(QImage img);
 };
 
 #endif // MODEL_H

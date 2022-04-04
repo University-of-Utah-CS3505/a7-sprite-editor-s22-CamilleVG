@@ -107,3 +107,43 @@ void Model::SaveFile(QString filename) {
         }
     }
 }
+
+void Model::OpenFile(QString filename) {
+    std::vector<QImage> newFrames;
+    int size;
+    QJsonArray loadFrames;
+    if (!filename.isEmpty()) {
+        QJsonDocument loadDoc;
+        QJsonObject loadObject;
+        QByteArray jsonData;
+        QFile loadFile(filename);
+        if (loadFile.open(QIODevice::ReadOnly)) {
+            jsonData = loadFile.readAll();
+            loadDoc = loadDoc.fromJson(jsonData);
+            loadObject = loadDoc.object();
+            size = loadObject["height"].toInt();
+            QJsonObject loadFrames = loadObject["frame"].toObject();
+            for (int frameIndex = 0; frameIndex < loadFrames.size(); frameIndex++) {
+                QString frameName = "frame" + QString::number(frameIndex);
+                QJsonArray newFrameRows = loadFrames[frameName].toArray();
+                QImage newFrame(newFrameRows.size(), newFrameRows.size(), QImage::Format_ARGB32);
+                for (int rowIndex = 0; rowIndex < newFrameRows.size(); rowIndex++) {
+                    QJsonArray newFrameCols = newFrameRows.at(rowIndex).toArray();
+                    for (int colIndex = 0; colIndex < newFrameCols.size(); colIndex++) {
+                        QColor newColor;
+                        newColor.setRed(newFrameCols.at(colIndex).toArray().at(0).toInt());
+                        newColor.setGreen(newFrameCols.at(colIndex).toArray().at(1).toInt());
+                        newColor.setBlue(newFrameCols.at(colIndex).toArray().at(2).toInt());
+                        newColor.setAlpha(newFrameCols.at(colIndex).toArray().at(3).toInt());
+                        newFrame.setPixelColor(colIndex, rowIndex, newColor);
+                    }
+                }
+                newFrames.push_back(newFrame);
+            }
+            this->frames = newFrames;
+            emit UpdateLayout(frames, 0);
+        }
+    }
+
+
+}

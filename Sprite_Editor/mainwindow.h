@@ -60,6 +60,7 @@ signals:
     void UpdateFPS(int fps);
     void RemoveFrameSignal();
     void SaveFile(QString filename);
+    void OpenFile(QString filename);
 
 private:
     void ClearLayout();
