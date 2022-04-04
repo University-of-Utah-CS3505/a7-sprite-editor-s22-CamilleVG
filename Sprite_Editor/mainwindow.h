@@ -47,6 +47,7 @@ private slots:
     void UpdateDrawingFrame(QImage img);
 
     void on_playPushButton_clicked();
+    void on_duplicateButton_clicked();
 
 public slots:
     void assignDimensions(int size);

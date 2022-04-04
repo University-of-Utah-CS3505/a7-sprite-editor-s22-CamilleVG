@@ -58,6 +58,7 @@ public:
     QPushButton *previousButton;
     QSpinBox *fpsSpinBox;
     QLabel *playBackLabel;
+    QPushButton *duplicateButton;
     QMenuBar *menubar;
     QMenu *menuFile;
     QStatusBar *statusbar;
@@ -129,10 +130,10 @@ public:
         playSpeedHorizontalSlider->setOrientation(Qt::Horizontal);
         addFrame = new QPushButton(centralwidget);
         addFrame->setObjectName(QString::fromUtf8("addFrame"));
-        addFrame->setGeometry(QRect(740, 420, 31, 24));
+        addFrame->setGeometry(QRect(750, 400, 31, 24));
         deleteFrame = new QPushButton(centralwidget);
         deleteFrame->setObjectName(QString::fromUtf8("deleteFrame"));
-        deleteFrame->setGeometry(QRect(740, 460, 31, 24));
+        deleteFrame->setGeometry(QRect(750, 460, 31, 24));
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
         gridLayoutWidget->setGeometry(QRect(280, 20, 391, 351));
@@ -156,10 +157,13 @@ public:
         playBackLabel->setObjectName(QString::fromUtf8("playBackLabel"));
         playBackLabel->setGeometry(QRect(40, 320, 100, 100));
         playBackLabel->setMaximumSize(QSize(100, 100));
+        duplicateButton = new QPushButton(centralwidget);
+        duplicateButton->setObjectName(QString::fromUtf8("duplicateButton"));
+        duplicateButton->setGeometry(QRect(750, 430, 31, 24));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainWindow->setMenuBar(menubar);
@@ -199,6 +203,7 @@ public:
         nextButton->setText(QCoreApplication::translate("MainWindow", ">", nullptr));
         previousButton->setText(QCoreApplication::translate("MainWindow", "<", nullptr));
         playBackLabel->setText(QString());
+        duplicateButton->setText(QCoreApplication::translate("MainWindow", "=", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
     } // retranslateUi
 

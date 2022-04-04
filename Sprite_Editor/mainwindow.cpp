@@ -174,5 +174,11 @@ void MainWindow::on_playPushButton_clicked()
 
 void MainWindow::UpdateRealPlayBack(QImage frame) {
     emit UpdateRealPlayBackSignal(frame, otherwindow.imageSize);
+
+}
+void MainWindow::on_duplicateButton_clicked()
+{
+    emit(UpdateFrame(screen->image));
+    emit(AddFrame(screen->image));
 }
 
