@@ -78,12 +78,12 @@ void Model::RemoveFrameSlot() {
     emit UpdateLayout(frames, currFrameIndex);
 }
 
-void Model::SaveFile(QString filename) {
+void Model::SaveFile(QString filename, int size) {
     if (!filename.isEmpty()) {
         QJsonDocument saveDoc;
         QJsonObject saveObject;
-        saveObject["height"] = 2;
-        saveObject["width"] = 2;
+        saveObject["height"] = size;
+        saveObject["width"] = size;
         int numFrames = frames.size();
         saveObject["numberOfFrames"] = numFrames;
 

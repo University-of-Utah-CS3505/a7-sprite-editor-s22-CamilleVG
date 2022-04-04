@@ -33,7 +33,7 @@ public slots:
     void GetFrames();
     void UpdateFPS(int _fps);
     void RemoveFrameSlot();
-    void SaveFile(QString filename);
+    void SaveFile(QString filename, int size);
     void OpenFile(QString filename);
 
 signals:

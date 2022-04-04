@@ -92,8 +92,8 @@ static const uint qt_meta_data_Model[] = {
       16,    0,  123,    2, 0x0a,   18 /* Public */,
       17,    1,  124,    2, 0x0a,   19 /* Public */,
       19,    0,  127,    2, 0x0a,   21 /* Public */,
-      20,    1,  128,    2, 0x0a,   22 /* Public */,
-      22,    1,  131,    2, 0x0a,   24 /* Public */,
+      20,    2,  128,    2, 0x0a,   22 /* Public */,
+      22,    1,  133,    2, 0x0a,   25 /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int,    4,    5,
@@ -110,7 +110,7 @@ static const uint qt_meta_data_Model[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   18,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   21,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int,   21,   11,
     QMetaType::Void, QMetaType::QString,   21,
 
        0        // eod
@@ -134,7 +134,7 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 9: _t->GetFrames(); break;
         case 10: _t->UpdateFPS((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->RemoveFrameSlot(); break;
-        case 12: _t->SaveFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 12: _t->SaveFile((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 13: _t->OpenFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
@@ -186,7 +186,7 @@ const QMetaObject Model::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Model_t
 , QtPrivate::TypeAndForceComplete<Model, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
 
 
 >,

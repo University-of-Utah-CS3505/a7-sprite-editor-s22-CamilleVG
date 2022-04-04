@@ -67,13 +67,10 @@ signals:
     void PlayPlayBackLabel();
     void UpdateFPS(int fps);
     void RemoveFrameSignal();
-    void SaveFile(QString filename);
+    void SaveFile(QString filename, int size);
     void OpenFile(QString filename);
-<<<<<<< HEAD
     void UpdateSize(int size);
-=======
     void UpdateRealPlayBackSignal(QImage frame, int size);
->>>>>>> 93583d9a21f77580465db27c69ee401597d7a2d0
 
 private:
     void ClearLayout();

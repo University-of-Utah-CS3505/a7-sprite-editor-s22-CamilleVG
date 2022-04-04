@@ -32,7 +32,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(this, &MainWindow::SaveFile, &model, &Model::SaveFile);
     connect(this, &MainWindow::OpenFile, &model, &Model::OpenFile);
     connect(&model, &Model::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
-    connect(&model, &Model::SetDimensions, this, &MainWindow::ReassignDimensions);
+    connect(&model, &Model::SetDimensions, this, &MainWindow::ChangeScreenSize);
 
 }
 
@@ -51,11 +51,8 @@ void MainWindow::AssignDimensions() {
     emit PlayPlayBackLabel();
     connect(this, &MainWindow::SetColor, screen, &DrawScreen::changeColor);
     connect(screen, &DrawScreen::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
-<<<<<<< HEAD
     connect(this, &MainWindow::UpdateSize, screen, &DrawScreen::ResetSize);
-=======
     connect(this, &MainWindow::UpdateRealPlayBackSignal, &realsize, &RealSize::UpdateRealPlayBackSlot);
->>>>>>> 93583d9a21f77580465db27c69ee401597d7a2d0
 }
 
 void MainWindow::on_colorPickerPushButton_clicked() {
@@ -112,7 +109,7 @@ void MainWindow::ClearLayout() {
 void MainWindow::on_actionSave_triggered()
 {
     QString filename = QFileDialog::getSaveFileName(this, "", "", "Sprite Sheet Project (*.ssp)");
-    emit SaveFile(filename);
+    emit SaveFile(filename, this->otherwindow.imageSize);
 }
 
 
