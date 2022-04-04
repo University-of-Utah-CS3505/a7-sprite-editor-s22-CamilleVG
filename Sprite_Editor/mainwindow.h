@@ -8,6 +8,7 @@
 #include <QImage>
 #include <starterform.h>
 #include <QLabel>
+#include <realsize.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +20,7 @@ class MainWindow : public QMainWindow{
 public:
     MainWindow(Model &model, QWidget *parent = nullptr);
     StarterForm otherwindow;
+    RealSize realsize;
     ~MainWindow();
 
 private slots:
@@ -44,11 +46,14 @@ private slots:
     void on_deleteFrame_clicked();
     void UpdateDrawingFrame(QImage img);
 
+    void on_playPushButton_clicked();
+
 public slots:
     void assignDimensions(int size);
     void UpdateLayout(std::vector<QImage> frames, int currentFrame);
     void SetFrame(QImage img);
     void UpdatePlayBack(QImage frame);
+    void UpdateRealPlayBack(QImage frame);
 
 signals:
     void SetColor(QColor _color);
@@ -61,6 +66,7 @@ signals:
     void RemoveFrameSignal();
     void SaveFile(QString filename);
     void OpenFile(QString filename);
+    void UpdateRealPlayBackSignal(QImage frame, int size);
 
 private:
     void ClearLayout();
