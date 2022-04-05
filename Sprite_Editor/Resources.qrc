@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/Icons">
+        <file>Pencil.png.crdownload</file>
+        <file>EraserTransparentBG.png</file>
+        <file>BroadBrush.png</file>
+    </qresource>
+</RCC>

@@ -12,24 +12,25 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     ui->setupUi(this);
     ui->playBackLabel->setStyleSheet("QLabel {""border-style: solid;" "border-width: 1px;" "border-color: black; ""}");
 
-    connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::AssignDimensions);
+    QIcon brush = QIcon(":Icons/BroadBrush.png");
+    QIcon eraser = QIcon(":Icons/EraserTransparentBG.png");
+    QIcon pencil = QIcon(":Icons/Pencil.png.crdownload");
+    ui->brushRadioButton->setIcon(brush);
+    ui->eraserRadioButton->setIcon(eraser);
+    ui->pencilRadioButton->setIcon(pencil);
 
+    connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::AssignDimensions);
     connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
     connect(this, &MainWindow::UpdateFrame, &model, &Model::UpdateFrame);
     connect(&model, &Model::UpdateLayout, this, &MainWindow::UpdateLayout);
     connect(this, &MainWindow::NextFrameSignal, &model, &Model::NextFrameSlot);
     connect(this, &MainWindow::PreviousFrameSignal, &model, &Model::PreviousFrameSlot);
     connect(&model, &Model::SetImageSignal, this, &MainWindow::SetFrame);
-
     connect(this, &MainWindow::PlayPlayBackLabel, &model, &Model::GetFrames);
     connect(this, &MainWindow::UpdateFPS, &model, &Model::UpdateFPS);
-
     connect(this, &MainWindow::RemoveFrameSignal, &model, &Model::RemoveFrameSlot);
-
-
     connect(&model, &Model::SendFrames, this, &MainWindow::UpdatePlayBack);
     connect(&model, &Model::SendFrames, this, &MainWindow::UpdateRealPlayBack);
-
     connect(this, &MainWindow::SaveFile, &model, &Model::SaveFile);
     connect(this, &MainWindow::OpenFile, &model, &Model::OpenFile);
     connect(&model, &Model::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);

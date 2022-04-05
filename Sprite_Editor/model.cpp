@@ -122,7 +122,7 @@ void Model::SaveFile(QString filename, int size) {
                 QJsonArray row;
                 for (int pixelIndex = 0; pixelIndex < frames[frameIndex].width(); pixelIndex++) {
                     QJsonArray pixelArray;
-                    QColor color = frames[frameIndex].pixel(pixelIndex, rowIndex);
+                    QColor color = frames[frameIndex].pixelColor(pixelIndex, rowIndex);
                     pixelArray.push_back(color.red());
                     pixelArray.push_back(color.green());
                     pixelArray.push_back(color.blue());
