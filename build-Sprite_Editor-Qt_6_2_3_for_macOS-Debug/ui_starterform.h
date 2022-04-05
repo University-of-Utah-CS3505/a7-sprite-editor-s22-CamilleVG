@@ -25,7 +25,6 @@ public:
     QLabel *widthLabel;
     QLabel *widthLabel_2;
     QPushButton *pushButton;
-    QPushButton *pushButton_2;
 
     void setupUi(QWidget *StarterForm)
     {
@@ -44,9 +43,6 @@ public:
         pushButton = new QPushButton(StarterForm);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(270, 220, 93, 29));
-        pushButton_2 = new QPushButton(StarterForm);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(160, 220, 93, 29));
 
         retranslateUi(StarterForm);
 
@@ -60,7 +56,6 @@ public:
         widthLabel->setText(QCoreApplication::translate("StarterForm", "Size", nullptr));
         widthLabel_2->setText(QCoreApplication::translate("StarterForm", "px", nullptr));
         pushButton->setText(QCoreApplication::translate("StarterForm", "Ok", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("StarterForm", "Cancel", nullptr));
     } // retranslateUi
 
 };

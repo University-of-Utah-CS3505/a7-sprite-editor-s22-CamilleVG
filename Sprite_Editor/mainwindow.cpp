@@ -10,7 +10,7 @@
 
 MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    ui->playBackLabel->setStyleSheet("QLabel {""border-style: solid;" "border-width: 1px;" "border-color: black; ""}");
+   // ui->playBackLabel->setStyleSheet("QLabel {""border-style: solid;" "border-width: 1px;" "border-color: black; ""}");
 
     connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::AssignDimensions);
     connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
