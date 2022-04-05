@@ -7,6 +7,7 @@ int main( int argc, char **argv ) {
   Model model;
   MainWindow w(model, nullptr);
   w.show();
+  w.otherwindow.setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
   w.otherwindow.setWindowModality(Qt::ApplicationModal);
   w.otherwindow.show();
   return a.exec();

@@ -29,6 +29,10 @@ private slots:
 
     void on_actionLoad_triggered();
 
+    void on_actionNew_triggered();
+
+    void on_actionClose_triggered();
+
     void on_addFrame_clicked();
 
     void on_nextButton_clicked();
