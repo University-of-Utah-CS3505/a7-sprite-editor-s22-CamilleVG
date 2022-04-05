@@ -35,6 +35,9 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
     connect(&model, &Model::UpdateDrawingFrame, this, &MainWindow::UpdateDrawingFrame);
     connect(&model, &Model::SetDimensions, this, &MainWindow::ChangeScreenSize);
 
+    currColor = QColor("black");
+    QString styleSheet = "background-color: rgb(" + QString::number(currColor.red()) + "," + QString::number(currColor.green()) + "," + QString::number(currColor.blue()) + ")";
+    ui->currentColorFrame->setStyleSheet(styleSheet);
 }
 
 MainWindow::~MainWindow(){
