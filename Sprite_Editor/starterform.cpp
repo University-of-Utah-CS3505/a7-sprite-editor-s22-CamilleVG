@@ -23,8 +23,8 @@ void StarterForm::on_pushButton_clicked() {
         if (value < 4) {
             value = 4;
         }
-        if (value > 64) {
-            value = 64;
+        if (value > 128) {
+            value = 128;
         }
     }
 
