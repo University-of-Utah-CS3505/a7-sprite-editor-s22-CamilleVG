@@ -12,7 +12,7 @@ public:
     void clear();
     QImage image;
     QImage bgImg;
-    void SetSize(int pixels);
+    int pixels;
     std::string brushType = "pencil";
 
 public slots:
@@ -25,7 +25,6 @@ signals:
 private:
     QColor color;
     int pixelSize;
-    int pixels;
     bool scribbling = false;
     void drawTransparentBackground();
 

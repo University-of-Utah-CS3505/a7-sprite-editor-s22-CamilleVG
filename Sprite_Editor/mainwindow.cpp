@@ -257,7 +257,7 @@ void MainWindow::on_playPushButton_clicked()
  * @param Image to change the playback window to.
  */
 void MainWindow::UpdateRealPlayBack(QImage frame) {
-    emit UpdateRealPlayBackSignal(frame, otherwindow.imageSize);
+    emit UpdateRealPlayBackSignal(frame, screen->pixels);
 
 }
 
