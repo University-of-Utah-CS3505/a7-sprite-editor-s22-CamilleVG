@@ -6,6 +6,10 @@ Model::Model(QObject *parent):
     playerIndex = 0;
 }
 
+/**
+ * @brief Functionality to add a frame.
+ * @param Image that is added to frames array.
+ */
 void Model::AddFrame(QImage img) {
     if (frames.size() == 0) {
         frames.push_back(img);
@@ -24,11 +28,18 @@ void Model::AddFrame(QImage img) {
     emit UpdateLayout(frames, currFrameIndex);
 }
 
+/**
+ * @brief Updates the current frame.
+ * @param What the current frame is updated to.
+ */
 void Model::UpdateFrame(QImage img) {
     frames.at(currFrameIndex) = img;
     emit UpdateLayout(frames, currFrameIndex);
 }
 
+/**
+ * @brief Moves to the next frame.
+ */
 void Model::NextFrameSlot(){
     if(frames.size() - 1 > currFrameIndex){
         currFrameIndex++;
@@ -37,6 +48,9 @@ void Model::NextFrameSlot(){
     emit UpdateLayout(frames, currFrameIndex);
 }
 
+/**
+ * @brief Moves to the previous frame.
+ */
 void Model::PreviousFrameSlot(){
     if(0 < currFrameIndex){
         currFrameIndex--;
@@ -45,6 +59,9 @@ void Model::PreviousFrameSlot(){
     emit UpdateLayout(frames, currFrameIndex);
 }
 
+/**
+ * @brief Updates the current frame in mainwindow.
+ */
 void Model::GetFrames(){
     // Updated this method as it didnt work with deleteing frames.
     // If the for loop was on a frame that was deleted the program would crash.
@@ -59,11 +76,17 @@ void Model::GetFrames(){
     playerIndex++;
 }
 
+/**
+ * @brief Updates the frames per second.
+ * @param New fps value.
+ */
 void Model::UpdateFPS(int _fps) {
-    qDebug() << _fps;
     fps = _fps;
 }
 
+/**
+ * @brief Removes the selected frame.
+ */
 void Model::RemoveFrameSlot() {
     if (currFrameIndex == 0 && frames.size() == 1) {
         frames.at(currFrameIndex).fill(Qt::transparent);
@@ -78,28 +101,27 @@ void Model::RemoveFrameSlot() {
     emit UpdateLayout(frames, currFrameIndex);
 }
 
+/**
+ * @brief Saves the current sprite editor file.
+ * @param Filename.
+ * @param Size of dimensions.
+ */
 void Model::SaveFile(QString filename, int size) {
-    // Checks for valid filename
     if (!filename.isEmpty()) {
         QJsonDocument saveDoc;
         QJsonObject saveObject;
-        // Saves initial data into file. Because QJsonObject is unordered, the save file output will order the fields randomly
         saveObject["height"] = size;
         saveObject["width"] = size;
         int numFrames = frames.size();
         saveObject["numberOfFrames"] = numFrames;
 
         QJsonObject saveFrames;
-        // Iterates through each frame
         for (int frameIndex = 0; frameIndex < numFrames; frameIndex++) {
             QJsonArray frame;
-            // Iterates through each row in each frame
             for (int rowIndex = 0; rowIndex < frames[frameIndex].height(); rowIndex++) {
                 QJsonArray row;
-                // Iterates through each pixel in each row in each frame
                 for (int pixelIndex = 0; pixelIndex < frames[frameIndex].width(); pixelIndex++) {
                     QJsonArray pixelArray;
-                    // Creates an rgba array for each pixel
                     QColor color = frames[frameIndex].pixel(pixelIndex, rowIndex);
                     pixelArray.push_back(color.red());
                     pixelArray.push_back(color.green());
@@ -116,7 +138,6 @@ void Model::SaveFile(QString filename, int size) {
         saveDoc.setObject(saveObject);
         QByteArray jsonData = saveDoc.toJson();
         QFile output(filename);
-        // Checks if the file can be written to
         if (output.open(QIODevice::WriteOnly)) {
             output.write(jsonData);
             output.close();
@@ -124,53 +145,51 @@ void Model::SaveFile(QString filename, int size) {
     }
 }
 
+/**
+ * @brief Opens a file.
+ * @param Filename to be opened.
+ */
 void Model::OpenFile(QString filename) {
     std::vector<QImage> newFrames;
     QJsonArray loadFrames;
-    // Checks for valid filename
     if (!filename.isEmpty()) {
         QJsonDocument loadDoc;
         QJsonObject loadObject;
         QByteArray jsonData;
         QFile loadFile(filename);
-        // Checks if file can be read
         if (loadFile.open(QIODevice::ReadOnly)) {
             jsonData = loadFile.readAll();
             loadDoc = loadDoc.fromJson(jsonData);
             loadObject = loadDoc.object();
-            // Resizes the draw screen
             int size = loadObject["height"].toInt();
             emit SetDimensions(size);
+
             QJsonObject loadFrames = loadObject["frame"].toObject();
-            // Iterates throughe each frame
             for (int frameIndex = 0; frameIndex < loadFrames.size(); frameIndex++) {
                 QString frameName = "frame" + QString::number(frameIndex);
                 QJsonArray newFrameRows = loadFrames[frameName].toArray();
                 QImage newFrame(newFrameRows.size(), newFrameRows.size(), QImage::Format_ARGB32);
-                // Iterates through each row of each frame
                 for (int rowIndex = 0; rowIndex < newFrameRows.size(); rowIndex++) {
-                    QJsonArray newFramePixels = newFrameRows.at(rowIndex).toArray();
-                    // Iterates through each pixel for every row
-                    for (int pixelIndex = 0; pixelIndex < newFramePixels.size(); pixelIndex++) {
+                    QJsonArray newFrameCols = newFrameRows.at(rowIndex).toArray();
+                    for (int colIndex = 0; colIndex < newFrameCols.size(); colIndex++) {
                         QColor newColor;
-                        newColor.setRed(newFramePixels.at(pixelIndex).toArray().at(0).toInt());
-                        newColor.setGreen(newFramePixels.at(pixelIndex).toArray().at(1).toInt());
-                        newColor.setBlue(newFramePixels.at(pixelIndex).toArray().at(2).toInt());
-                        newColor.setAlpha(newFramePixels.at(pixelIndex).toArray().at(3).toInt());
-                        // Checks for transparent background
+                        newColor.setRed(newFrameCols.at(colIndex).toArray().at(0).toInt());
+                        newColor.setGreen(newFrameCols.at(colIndex).toArray().at(1).toInt());
+                        newColor.setBlue(newFrameCols.at(colIndex).toArray().at(2).toInt());
+                        newColor.setAlpha(newFrameCols.at(colIndex).toArray().at(3).toInt());
                         if (newColor != qRgba(200, 200, 200, 0)){
-                            newFrame.setPixelColor(pixelIndex, rowIndex, newColor);
+                            newFrame.setPixelColor(colIndex, rowIndex, newColor);
                         }
                     }
                 }
-                // Adds the new frame to the vector
                 newFrames.push_back(newFrame);
             }
-            // Replaces the old frames with the imported ones
             this->frames = newFrames;
             currFrameIndex = 0;
             UpdateFrame(frames.at(0));
             emit SetImageSignal(frames.at(0));
         }
     }
+
+
 }
