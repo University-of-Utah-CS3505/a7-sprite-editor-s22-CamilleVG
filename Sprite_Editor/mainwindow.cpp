@@ -191,4 +191,3 @@ void MainWindow::ChangeScreenSize(int size)
 {
     emit(UpdateSize(size));
 }
-
