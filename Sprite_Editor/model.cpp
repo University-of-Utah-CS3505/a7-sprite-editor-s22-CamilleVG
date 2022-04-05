@@ -153,6 +153,7 @@ void Model::OpenFile(QString filename) {
                 newFrames.push_back(newFrame);
             }
             this->frames = newFrames;
+            currFrameIndex = 0;
             UpdateFrame(frames.at(0));
             emit SetImageSignal(frames.at(0));
         }

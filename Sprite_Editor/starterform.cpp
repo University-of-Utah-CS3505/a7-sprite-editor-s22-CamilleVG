@@ -20,8 +20,8 @@ void StarterForm::on_pushButton_clicked() {
         value = 20;
     } else {
         value = text.toInt();
-        if (value < 8) {
-            value = 8;
+        if (value < 4) {
+            value = 4;
         }
         if (value > 64) {
             value = 64;
