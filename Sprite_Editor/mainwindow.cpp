@@ -13,6 +13,7 @@ MainWindow::MainWindow(Model &model, QWidget *parent): QMainWindow(parent), ui(n
    // ui->playBackLabel->setStyleSheet("QLabel {""border-style: solid;" "border-width: 1px;" "border-color: black; ""}");
 
     connect(&otherwindow, &StarterForm::setDimensions, this, &MainWindow::AssignDimensions);
+
     connect(this, &MainWindow::AddFrame, &model, &Model::AddFrame);
     connect(this, &MainWindow::UpdateFrame, &model, &Model::UpdateFrame);
     connect(&model, &Model::UpdateLayout, this, &MainWindow::UpdateLayout);
@@ -119,6 +120,21 @@ void MainWindow::on_actionLoad_triggered()
     emit OpenFile(filename);
 }
 
+void MainWindow::on_actionNew_triggered()
+{
+    qDebug() << "entered action new";
+    Model newModel;
+    MainWindow *newWin = new MainWindow(newModel, nullptr);
+    newWin->show();
+    newWin->otherwindow.setWindowModality(Qt::ApplicationModal);
+    newWin->otherwindow.show();
+}
+
+void MainWindow::on_actionClose_triggered()
+{
+    hide();
+}
+
 void MainWindow::on_nextButton_clicked()
 {
     emit UpdateFrame(screen->image);
@@ -191,4 +207,3 @@ void MainWindow::ChangeScreenSize(int size)
 {
     emit(UpdateSize(size));
 }
-
