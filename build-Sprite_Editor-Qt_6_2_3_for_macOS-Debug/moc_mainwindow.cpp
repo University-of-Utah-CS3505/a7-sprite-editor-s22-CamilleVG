@@ -23,8 +23,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[90];
-    char stringdata0[740];
+    const uint offsetsAndSize[94];
+    char stringdata0[788];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -53,28 +53,30 @@ QT_MOC_LITERAL(207, 5), // "frame"
 QT_MOC_LITERAL(213, 32), // "on_colorPickerPushButton_clicked"
 QT_MOC_LITERAL(246, 23), // "on_actionSave_triggered"
 QT_MOC_LITERAL(270, 23), // "on_actionLoad_triggered"
-QT_MOC_LITERAL(294, 19), // "on_addFrame_clicked"
-QT_MOC_LITERAL(314, 21), // "on_nextButton_clicked"
-QT_MOC_LITERAL(336, 25), // "on_previousButton_clicked"
-QT_MOC_LITERAL(362, 41), // "on_playSpeedHorizontalSlider_..."
-QT_MOC_LITERAL(404, 5), // "value"
-QT_MOC_LITERAL(410, 28), // "on_eraserRadioButton_clicked"
-QT_MOC_LITERAL(439, 28), // "on_pencilRadioButton_clicked"
-QT_MOC_LITERAL(468, 27), // "on_brushRadioButton_clicked"
-QT_MOC_LITERAL(496, 22), // "on_deleteFrame_clicked"
-QT_MOC_LITERAL(519, 18), // "UpdateDrawingFrame"
-QT_MOC_LITERAL(538, 25), // "on_playPushButton_clicked"
-QT_MOC_LITERAL(564, 26), // "on_duplicateButton_clicked"
-QT_MOC_LITERAL(591, 16), // "ChangeScreenSize"
-QT_MOC_LITERAL(608, 16), // "AssignDimensions"
-QT_MOC_LITERAL(625, 18), // "ReassignDimensions"
-QT_MOC_LITERAL(644, 12), // "UpdateLayout"
-QT_MOC_LITERAL(657, 19), // "std::vector<QImage>"
-QT_MOC_LITERAL(677, 6), // "frames"
-QT_MOC_LITERAL(684, 12), // "currentFrame"
-QT_MOC_LITERAL(697, 8), // "SetFrame"
-QT_MOC_LITERAL(706, 14), // "UpdatePlayBack"
-QT_MOC_LITERAL(721, 18) // "UpdateRealPlayBack"
+QT_MOC_LITERAL(294, 22), // "on_actionNew_triggered"
+QT_MOC_LITERAL(317, 24), // "on_actionClose_triggered"
+QT_MOC_LITERAL(342, 19), // "on_addFrame_clicked"
+QT_MOC_LITERAL(362, 21), // "on_nextButton_clicked"
+QT_MOC_LITERAL(384, 25), // "on_previousButton_clicked"
+QT_MOC_LITERAL(410, 41), // "on_playSpeedHorizontalSlider_..."
+QT_MOC_LITERAL(452, 5), // "value"
+QT_MOC_LITERAL(458, 28), // "on_eraserRadioButton_clicked"
+QT_MOC_LITERAL(487, 28), // "on_pencilRadioButton_clicked"
+QT_MOC_LITERAL(516, 27), // "on_brushRadioButton_clicked"
+QT_MOC_LITERAL(544, 22), // "on_deleteFrame_clicked"
+QT_MOC_LITERAL(567, 18), // "UpdateDrawingFrame"
+QT_MOC_LITERAL(586, 25), // "on_playPushButton_clicked"
+QT_MOC_LITERAL(612, 26), // "on_duplicateButton_clicked"
+QT_MOC_LITERAL(639, 16), // "ChangeScreenSize"
+QT_MOC_LITERAL(656, 16), // "AssignDimensions"
+QT_MOC_LITERAL(673, 18), // "ReassignDimensions"
+QT_MOC_LITERAL(692, 12), // "UpdateLayout"
+QT_MOC_LITERAL(705, 19), // "std::vector<QImage>"
+QT_MOC_LITERAL(725, 6), // "frames"
+QT_MOC_LITERAL(732, 12), // "currentFrame"
+QT_MOC_LITERAL(745, 8), // "SetFrame"
+QT_MOC_LITERAL(754, 14), // "UpdatePlayBack"
+QT_MOC_LITERAL(769, 18) // "UpdateRealPlayBack"
 
     },
     "MainWindow\0SetColor\0\0_color\0AddFrame\0"
@@ -85,6 +87,7 @@ QT_MOC_LITERAL(721, 18) // "UpdateRealPlayBack"
     "UpdateSize\0UpdateRealPlayBackSignal\0"
     "frame\0on_colorPickerPushButton_clicked\0"
     "on_actionSave_triggered\0on_actionLoad_triggered\0"
+    "on_actionNew_triggered\0on_actionClose_triggered\0"
     "on_addFrame_clicked\0on_nextButton_clicked\0"
     "on_previousButton_clicked\0"
     "on_playSpeedHorizontalSlider_valueChanged\0"
@@ -107,7 +110,7 @@ static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      33,   14, // methods
+      35,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -115,41 +118,43 @@ static const uint qt_meta_data_MainWindow[] = {
       12,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  212,    2, 0x06,    1 /* Public */,
-       4,    1,  215,    2, 0x06,    3 /* Public */,
-       6,    1,  218,    2, 0x06,    5 /* Public */,
-       7,    0,  221,    2, 0x06,    7 /* Public */,
-       8,    0,  222,    2, 0x06,    8 /* Public */,
-       9,    0,  223,    2, 0x06,    9 /* Public */,
-      10,    1,  224,    2, 0x06,   10 /* Public */,
-      12,    0,  227,    2, 0x06,   12 /* Public */,
-      13,    2,  228,    2, 0x06,   13 /* Public */,
-      16,    1,  233,    2, 0x06,   16 /* Public */,
-      17,    1,  236,    2, 0x06,   18 /* Public */,
-      18,    2,  239,    2, 0x06,   20 /* Public */,
+       1,    1,  224,    2, 0x06,    1 /* Public */,
+       4,    1,  227,    2, 0x06,    3 /* Public */,
+       6,    1,  230,    2, 0x06,    5 /* Public */,
+       7,    0,  233,    2, 0x06,    7 /* Public */,
+       8,    0,  234,    2, 0x06,    8 /* Public */,
+       9,    0,  235,    2, 0x06,    9 /* Public */,
+      10,    1,  236,    2, 0x06,   10 /* Public */,
+      12,    0,  239,    2, 0x06,   12 /* Public */,
+      13,    2,  240,    2, 0x06,   13 /* Public */,
+      16,    1,  245,    2, 0x06,   16 /* Public */,
+      17,    1,  248,    2, 0x06,   18 /* Public */,
+      18,    2,  251,    2, 0x06,   20 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      20,    0,  244,    2, 0x08,   23 /* Private */,
-      21,    0,  245,    2, 0x08,   24 /* Private */,
-      22,    0,  246,    2, 0x08,   25 /* Private */,
-      23,    0,  247,    2, 0x08,   26 /* Private */,
-      24,    0,  248,    2, 0x08,   27 /* Private */,
-      25,    0,  249,    2, 0x08,   28 /* Private */,
-      26,    1,  250,    2, 0x08,   29 /* Private */,
-      28,    0,  253,    2, 0x08,   31 /* Private */,
-      29,    0,  254,    2, 0x08,   32 /* Private */,
-      30,    0,  255,    2, 0x08,   33 /* Private */,
-      31,    0,  256,    2, 0x08,   34 /* Private */,
-      32,    1,  257,    2, 0x08,   35 /* Private */,
-      33,    0,  260,    2, 0x08,   37 /* Private */,
-      34,    0,  261,    2, 0x08,   38 /* Private */,
-      35,    1,  262,    2, 0x08,   39 /* Private */,
-      36,    0,  265,    2, 0x0a,   41 /* Public */,
-      37,    0,  266,    2, 0x0a,   42 /* Public */,
-      38,    2,  267,    2, 0x0a,   43 /* Public */,
-      42,    1,  272,    2, 0x0a,   46 /* Public */,
-      43,    1,  275,    2, 0x0a,   48 /* Public */,
-      44,    1,  278,    2, 0x0a,   50 /* Public */,
+      20,    0,  256,    2, 0x08,   23 /* Private */,
+      21,    0,  257,    2, 0x08,   24 /* Private */,
+      22,    0,  258,    2, 0x08,   25 /* Private */,
+      23,    0,  259,    2, 0x08,   26 /* Private */,
+      24,    0,  260,    2, 0x08,   27 /* Private */,
+      25,    0,  261,    2, 0x08,   28 /* Private */,
+      26,    0,  262,    2, 0x08,   29 /* Private */,
+      27,    0,  263,    2, 0x08,   30 /* Private */,
+      28,    1,  264,    2, 0x08,   31 /* Private */,
+      30,    0,  267,    2, 0x08,   33 /* Private */,
+      31,    0,  268,    2, 0x08,   34 /* Private */,
+      32,    0,  269,    2, 0x08,   35 /* Private */,
+      33,    0,  270,    2, 0x08,   36 /* Private */,
+      34,    1,  271,    2, 0x08,   37 /* Private */,
+      35,    0,  274,    2, 0x08,   39 /* Private */,
+      36,    0,  275,    2, 0x08,   40 /* Private */,
+      37,    1,  276,    2, 0x08,   41 /* Private */,
+      38,    0,  279,    2, 0x0a,   43 /* Public */,
+      39,    0,  280,    2, 0x0a,   44 /* Public */,
+      40,    2,  281,    2, 0x0a,   45 /* Public */,
+      44,    1,  286,    2, 0x0a,   48 /* Public */,
+      45,    1,  289,    2, 0x0a,   50 /* Public */,
+      46,    1,  292,    2, 0x0a,   52 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QColor,    3,
@@ -172,7 +177,9 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   27,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   29,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -183,7 +190,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::Int,   15,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 39, QMetaType::Int,   40,   41,
+    QMetaType::Void, 0x80000000 | 41, QMetaType::Int,   42,   43,
     QMetaType::Void, QMetaType::QImage,    5,
     QMetaType::Void, QMetaType::QImage,   19,
     QMetaType::Void, QMetaType::QImage,   19,
@@ -212,24 +219,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 12: _t->on_colorPickerPushButton_clicked(); break;
         case 13: _t->on_actionSave_triggered(); break;
         case 14: _t->on_actionLoad_triggered(); break;
-        case 15: _t->on_addFrame_clicked(); break;
-        case 16: _t->on_nextButton_clicked(); break;
-        case 17: _t->on_previousButton_clicked(); break;
-        case 18: _t->on_playSpeedHorizontalSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 19: _t->on_eraserRadioButton_clicked(); break;
-        case 20: _t->on_pencilRadioButton_clicked(); break;
-        case 21: _t->on_brushRadioButton_clicked(); break;
-        case 22: _t->on_deleteFrame_clicked(); break;
-        case 23: _t->UpdateDrawingFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 24: _t->on_playPushButton_clicked(); break;
-        case 25: _t->on_duplicateButton_clicked(); break;
-        case 26: _t->ChangeScreenSize((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 27: _t->AssignDimensions(); break;
-        case 28: _t->ReassignDimensions(); break;
-        case 29: _t->UpdateLayout((*reinterpret_cast< std::vector<QImage>(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 30: _t->SetFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 31: _t->UpdatePlayBack((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 32: _t->UpdateRealPlayBack((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 15: _t->on_actionNew_triggered(); break;
+        case 16: _t->on_actionClose_triggered(); break;
+        case 17: _t->on_addFrame_clicked(); break;
+        case 18: _t->on_nextButton_clicked(); break;
+        case 19: _t->on_previousButton_clicked(); break;
+        case 20: _t->on_playSpeedHorizontalSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 21: _t->on_eraserRadioButton_clicked(); break;
+        case 22: _t->on_pencilRadioButton_clicked(); break;
+        case 23: _t->on_brushRadioButton_clicked(); break;
+        case 24: _t->on_deleteFrame_clicked(); break;
+        case 25: _t->UpdateDrawingFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 26: _t->on_playPushButton_clicked(); break;
+        case 27: _t->on_duplicateButton_clicked(); break;
+        case 28: _t->ChangeScreenSize((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 29: _t->AssignDimensions(); break;
+        case 30: _t->ReassignDimensions(); break;
+        case 31: _t->UpdateLayout((*reinterpret_cast< std::vector<QImage>(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 32: _t->SetFrame((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 33: _t->UpdatePlayBack((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 34: _t->UpdateRealPlayBack((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -329,7 +338,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 , QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QColor, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QImage, std::false_type>
 
 
 >,
@@ -356,13 +365,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 33)
+        if (_id < 35)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 33;
+        _id -= 35;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 33)
+        if (_id < 35)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 33;
+        _id -= 35;
     }
     return _id;
 }
