@@ -64,6 +64,11 @@
       <height>171</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="title">
      <string>Toolbox</string>
     </property>
@@ -75,6 +80,11 @@
        <width>161</width>
        <height>51</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
@@ -96,6 +106,11 @@ padding: 5px;</string>
        <height>51</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">border: 2px solid gray;
 padding: 5px;</string>
@@ -116,6 +131,11 @@ padding: 5px;</string>
        <height>51</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">border: 2px solid gray;
 padding: 5px;</string>
@@ -133,6 +153,11 @@ padding: 5px;</string>
       <width>121</width>
       <height>32</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid gray;</string>
@@ -172,6 +197,11 @@ padding: 5px;</string>
       <height>32</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid gray;</string>
     </property>
@@ -207,6 +237,11 @@ padding: 5px;</string>
       <height>24</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid gray;</string>
     </property>
@@ -222,6 +257,11 @@ padding: 5px;</string>
       <width>31</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid gray;</string>
@@ -257,6 +297,11 @@ padding: 5px;</string>
       <height>24</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid gray;</string>
     </property>
@@ -272,6 +317,11 @@ padding: 5px;</string>
       <width>31</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid gray;</string>
@@ -333,6 +383,7 @@ padding: 5px;</string>
     <property name="font">
      <font>
       <pointsize>11</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">

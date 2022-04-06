@@ -103,26 +103,33 @@ public:
         ToolsGroupBox = new QGroupBox(centralwidget);
         ToolsGroupBox->setObjectName(QString::fromUtf8("ToolsGroupBox"));
         ToolsGroupBox->setGeometry(QRect(10, 70, 161, 171));
+        QFont font;
+        font.setBold(true);
+        ToolsGroupBox->setFont(font);
         eraserRadioButton = new QRadioButton(ToolsGroupBox);
         eraserRadioButton->setObjectName(QString::fromUtf8("eraserRadioButton"));
         eraserRadioButton->setGeometry(QRect(0, 120, 161, 51));
+        eraserRadioButton->setFont(font);
         eraserRadioButton->setAutoFillBackground(false);
         eraserRadioButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;\n"
 "padding: 5px;"));
         pencilRadioButton = new QRadioButton(ToolsGroupBox);
         pencilRadioButton->setObjectName(QString::fromUtf8("pencilRadioButton"));
         pencilRadioButton->setGeometry(QRect(0, 20, 161, 51));
+        pencilRadioButton->setFont(font);
         pencilRadioButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;\n"
 "padding: 5px;"));
         pencilRadioButton->setChecked(true);
         brushRadioButton = new QRadioButton(ToolsGroupBox);
         brushRadioButton->setObjectName(QString::fromUtf8("brushRadioButton"));
         brushRadioButton->setGeometry(QRect(0, 70, 161, 51));
+        brushRadioButton->setFont(font);
         brushRadioButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;\n"
 "padding: 5px;"));
         colorPickerPushButton = new QPushButton(centralwidget);
         colorPickerPushButton->setObjectName(QString::fromUtf8("colorPickerPushButton"));
         colorPickerPushButton->setGeometry(QRect(10, 10, 121, 32));
+        colorPickerPushButton->setFont(font);
         colorPickerPushButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;"));
         currentColorFrame = new QFrame(centralwidget);
         currentColorFrame->setObjectName(QString::fromUtf8("currentColorFrame"));
@@ -134,6 +141,7 @@ public:
         playPushButton = new QPushButton(centralwidget);
         playPushButton->setObjectName(QString::fromUtf8("playPushButton"));
         playPushButton->setGeometry(QRect(20, 510, 131, 32));
+        playPushButton->setFont(font);
         playPushButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;"));
         playSpeedHorizontalSlider = new QSlider(centralwidget);
         playSpeedHorizontalSlider->setObjectName(QString::fromUtf8("playSpeedHorizontalSlider"));
@@ -144,10 +152,12 @@ public:
         addFrame = new QPushButton(centralwidget);
         addFrame->setObjectName(QString::fromUtf8("addFrame"));
         addFrame->setGeometry(QRect(210, 370, 31, 24));
+        addFrame->setFont(font);
         addFrame->setStyleSheet(QString::fromUtf8("border: 2px solid gray;"));
         deleteFrame = new QPushButton(centralwidget);
         deleteFrame->setObjectName(QString::fromUtf8("deleteFrame"));
         deleteFrame->setGeometry(QRect(250, 370, 31, 24));
+        deleteFrame->setFont(font);
         deleteFrame->setStyleSheet(QString::fromUtf8("border: 2px solid gray;"));
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
@@ -160,10 +170,12 @@ public:
         nextButton = new QPushButton(centralwidget);
         nextButton->setObjectName(QString::fromUtf8("nextButton"));
         nextButton->setGeometry(QRect(700, 370, 31, 24));
+        nextButton->setFont(font);
         nextButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;"));
         previousButton = new QPushButton(centralwidget);
         previousButton->setObjectName(QString::fromUtf8("previousButton"));
         previousButton->setGeometry(QRect(660, 370, 31, 24));
+        previousButton->setFont(font);
         previousButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;"));
         fpsSpinBox = new QSpinBox(centralwidget);
         fpsSpinBox->setObjectName(QString::fromUtf8("fpsSpinBox"));
@@ -179,9 +191,10 @@ public:
         duplicateButton = new QPushButton(centralwidget);
         duplicateButton->setObjectName(QString::fromUtf8("duplicateButton"));
         duplicateButton->setGeometry(QRect(290, 370, 81, 24));
-        QFont font;
-        font.setPointSize(11);
-        duplicateButton->setFont(font);
+        QFont font1;
+        font1.setPointSize(11);
+        font1.setBold(true);
+        duplicateButton->setFont(font1);
         duplicateButton->setStyleSheet(QString::fromUtf8("border: 2px solid gray;"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);

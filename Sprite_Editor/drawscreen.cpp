@@ -1,7 +1,15 @@
+/**
+ * A7: Sprite Editor Implementation
+ * Cannon Rudd, Hadyn Thurman, Camille van Ginkel, Logan Holmes, Sam Christensen
+ * */
 #include "drawscreen.h"
-
 #include <QMouseEvent>
-#include <iostream>
+
+/**
+ * @brief Constructs the screen to be drawn on.
+ * @param _pixels
+ * @param parent
+ */
 DrawScreen::DrawScreen(int _pixels, QWidget *parent)
     : QWidget{parent},
       pixels(_pixels)
@@ -20,6 +28,10 @@ DrawScreen::DrawScreen(int _pixels, QWidget *parent)
     drawTransparentBackground();
 }
 
+/**
+ * @brief Resets the size of the draw screen.
+ * @param newSize
+ */
 void DrawScreen::ResetSize(int newSize) {
     pixels = newSize;
     int size = std::ceil(300 / pixels) * pixels;
@@ -34,6 +46,9 @@ void DrawScreen::ResetSize(int newSize) {
     drawTransparentBackground();
 }
 
+/**
+ * @brief Draws the checkered background for the image.
+ */
 void DrawScreen::drawTransparentBackground() {
     for (int row = 0; row < pixels; row += 1) {
         for (int col = 0; col < pixels; col += 1) {
@@ -48,6 +63,10 @@ void DrawScreen::drawTransparentBackground() {
     }
 }
 
+/**
+ * @brief If the mouse is pressed, then draw.
+ * @param event
+ */
 void DrawScreen::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
@@ -56,6 +75,10 @@ void DrawScreen::mousePressEvent(QMouseEvent *event)
     }
 }
 
+/**
+ * @brief If the mouse is moved and scribbling is true, continue to draw.
+ * @param event
+ */
 void DrawScreen::mouseMoveEvent(QMouseEvent *event)
 {
     if ((event->buttons() & Qt::LeftButton) && scribbling) {
@@ -63,6 +86,10 @@ void DrawScreen::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
+/**
+ * @brief If the mouse is released, stop drawing and update the frames.
+ * @param event
+ */
 void DrawScreen::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton && scribbling) {
@@ -72,6 +99,10 @@ void DrawScreen::mouseReleaseEvent(QMouseEvent *event)
     emit UpdateDrawingFrame(image);
 }
 
+/**
+ * @brief Event to paint on the images.
+ * @param event
+ */
 void DrawScreen::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
@@ -80,6 +111,11 @@ void DrawScreen::paintEvent(QPaintEvent *event)
     painter.drawImage(rect, image, rect);
 }
 
+/**
+ * @brief Method to draw depending on which tool is selected.
+ * @param x
+ * @param y
+ */
 void DrawScreen::drawRect(int x, int y)
 {
     QPainter painter(&image);
@@ -99,11 +135,18 @@ void DrawScreen::drawRect(int x, int y)
     update();
 }
 
+/**
+ * @brief Clears the draw screen.
+ */
 void DrawScreen::clear() {
     image.fill(qRgba(200, 200, 200, 0));
     update();
 }
 
+/**
+ * @brief Changes the selected color.
+ * @param col
+ */
 void DrawScreen::changeColor(QColor col){
     color = col;
 }

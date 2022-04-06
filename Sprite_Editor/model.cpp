@@ -1,3 +1,7 @@
+/**
+ * A7: Sprite Editor Implementation
+ * Cannon Rudd, Hadyn Thurman, Camille van Ginkel, Logan Holmes, Sam Christensen
+ * */
 #include "model.h"
 Model::Model(QObject *parent):
     QObject(parent)
